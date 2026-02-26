@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "prettier": "^3.8.1",
     "typescript": "~5.9.3",
     "vite": "^7.3.1"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
+    "@tailwindplus/elements": "^1.0.22",
+    "flowbite": "^4.0.1",
     "tailwindcss": "^4.2.1"
   }
 }

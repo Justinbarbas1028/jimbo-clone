@@ -1,1 +1,137 @@
 @import "tailwindcss";
+
+/* choose one of the following */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "flowbite/src/themes/default";
+
+/* MINIMAL THEME
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "flowbite/src/themes/minimal";
+*/
+
+/* ENTERPRISE THEME
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import "flowbite/src/themes/enterprise";
+*/
+
+/* PLAYFUL THEME
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+@import "flowbite/src/themes/playful";
+*/
+
+/* MONO THEME
+@import "flowbite/src/themes/mono";
+*/
+
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+@theme {
+  --color-brand: #001453;
+  --font-euclid: "Euclid Circular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+el-dropdown svg {
+  transition: transform 0.2s ease;
+}
+
+el-dropdown[open] svg {
+  transform: rotate(180deg);
+}
+
+.nav-link,
+.nav-trigger {
+  color: var(--color-brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.nav-trigger {
+  height: 100%;
+  position: relative;
+}
+
+.nav-trigger::after {
+  background-color: transparent;
+  bottom: -0.25rem;
+  content: "";
+  height: 0.1875rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: background-color 0.2s ease;
+}
+
+.nav-trigger[data-open='true'] {
+  color: #2563eb;
+}
+
+.nav-trigger[data-open='true']::after {
+  background-color: #2563eb;
+}
+
+.nav-chevron {
+  transition: transform 0.2s ease;
+}
+
+.nav-trigger[data-open='true'] .nav-chevron {
+  transform: rotate(180deg);
+}
+
+.mega-menu {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 24px rgba(0, 20, 83, 0.1);
+  color: var(--color-brand);
+  margin-top: 0.75rem;
+}
+
+.website-grid {
+  grid-template-columns: 1fr 1.12fr 1fr;
+}
+
+.online-store-grid {
+  grid-template-columns: 1fr 1fr
+}
+
+.mega-col {
+  
+  padding: 2.5rem 2.5rem 3.7rem 2.5rem;
+}
+
+.mega-col-muted {
+  background-color: #f8f8f8;
+  height: 100%;
+}
+
+.mega-heading {
+  color: #4b5563;
+  font-size: 0.750rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.mega-link {
+  color: var(--color-brand);
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.5rem
+}
+
+.mega-sub {
+  color: var(--color-brand);
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  margin-top: 0.25rem;
+  white-space: nowrap;
+}
