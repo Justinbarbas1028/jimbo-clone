@@ -8,9 +8,11 @@
     <title>my-project</title>
   </head>
   <body class="font-euclid">
-    <nav class="border-b border-gray-200 bg-white shadow-sm">
-      <div class="mx-auto flex h-[90px] items-center justify-between px-6">
-        <div class="text-brand text-lg font-semibold">LOGO</div>
+    <nav class="border-b border-gray-200 bg-white shadow-sm px-48 sticky top-0 z-50">
+      <div class="mx-auto flex h-22.5 items-center justify-between px-6">
+        <div class="text-brand text-lg font-semibold w-26">
+          <img src="/src/assets/images/7ed1b2a4-7810-4fd1-bd97-64a10f193402.png" alt="" srcset="">
+        </div>
 
         <ul class="flex h-full items-center gap-8 text-brand">
           <li>
@@ -22,7 +24,7 @@
                 </svg>
               </button>
 
-              <el-menu anchor="bottom start" popover class="mega-menu w-[800px]">
+              <el-menu anchor="bottom start" popover class="mega-menu w-200">
                 <div class="grid website-grid">
                   <div class="mega-col">
                     <p class="mega-heading">OUR WEBSITE BUILDER</p>
@@ -66,7 +68,7 @@
                 </svg>
               </button>
 
-              <el-menu anchor="bottom start" popover class="mega-menu w-[685px]">
+              <el-menu anchor="bottom start" popover class="mega-menu w-171.25">
                 <div class="grid online-store-grid">
                   <div class="mega-col">
                     <p class="mega-heading">OUR ONLINE STORE BUILDER</p>
@@ -167,6 +169,25 @@
         </ul>
       </div>
     </nav>
+
+    <section class="grid grid-cols-2 items-center py-30 px-50">
+      <div class="border size-150">
+        <h2>Create an Online Portfolio With Jimdo</h2>
+        <ul>
+          <li><p>Perfect for artist and creatives</p></li>
+          <li><p>Reach a larger audience</p></li>
+          <li><p>Show of what you can do</p></li>
+        </ul>
+        <button type="button">Start now</button>
+        <p>Start for free upgrade anytime to one of our premium plans</p>
+      </div>
+      <div class="border size-150">
+        <img src="/src/assets/images/hero-image.png" alt="" srcset="">
+      </div>
+    </section>
+    <section class="h-screen flex justify-center items-center">
+      <h1 class="text-4xl font-bold text-brand">HERO SECTION</h1> 
+    </section>
 
     <script type="module" src="/src/main.ts"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>

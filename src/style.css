@@ -24,13 +24,16 @@
 @import "flowbite/src/themes/mono";
 */
 
-@plugin "flowbite/plugin";
-@source "../node_modules/flowbite";
+@layer base {
+  :root {
+    --color-brand: #001453;
+    --font-euclid: "Euclid Circular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+}
 
-@theme {
-  --color-brand: #001453;
-  --font-euclid: "Euclid Circular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Helvetica, Arial, sans-serif;
+* {
+  border: 1px solid red;
 }
 
 el-dropdown svg {
@@ -46,7 +49,6 @@ el-dropdown[open] svg {
   color: var(--color-brand);
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.2;
@@ -55,6 +57,7 @@ el-dropdown[open] svg {
 .nav-trigger {
   height: 100%;
   position: relative;
+  padding: 12px;
 }
 
 .nav-trigger::after {
@@ -124,7 +127,7 @@ el-dropdown[open] svg {
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
-  margin-top: 1.5rem
+  margin-top: 1.5rem;
 }
 
 .mega-sub {
