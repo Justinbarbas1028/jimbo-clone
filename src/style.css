@@ -93,7 +93,6 @@
 }
 @import 'tailwindcss';
 
-
 /* choose one of the following */
 
 /* Euclid Circular A — local font files */
@@ -167,6 +166,8 @@
     font-style: italic;
     font-display: swap;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import 'flowbite/src/themes/default';
 
 /* MINIMAL THEME
