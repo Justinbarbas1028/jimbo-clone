@@ -1,9 +1,79 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* choose one of the following */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-@import "flowbite/src/themes/default";
+/* Euclid Circular A — local font files */
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Light%20Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Medium%20Italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold%20Italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Bold%20Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+@import 'flowbite/src/themes/default';
 
 /* MINIMAL THEME
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
@@ -24,117 +94,162 @@
 @import "flowbite/src/themes/mono";
 */
 
-@layer base {
-  :root {
+@theme {
     --color-brand: #001453;
-    --font-euclid: "Euclid Circular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
+    --font-euclid:
+        'Euclid Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+        Helvetica, Arial, sans-serif;
 }
 
-* {
-  border: 1px solid red;
+@layer base {
+    body {
+        font-family: var(--font-euclid);
+    }
+}
+
+@layer components {
+    .custom-blue {
+        background-color: #004ced;
+    }
 }
 
 el-dropdown svg {
-  transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 el-dropdown[open] svg {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .nav-link,
 .nav-trigger {
-  color: var(--color-brand);
-  display: inline-flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.2;
+    color: var(--color-brand);
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 .nav-trigger {
-  height: 100%;
-  position: relative;
-  padding: 12px;
+    height: 100%;
+    position: relative;
+    padding: 12px;
 }
 
 .nav-trigger::after {
-  background-color: transparent;
-  bottom: -0.25rem;
-  content: "";
-  height: 0.1875rem;
-  left: 0;
-  position: absolute;
-  right: 0;
-  transition: background-color 0.2s ease;
+    background-color: transparent;
+    bottom: -0.25rem;
+    content: '';
+    height: 0.1875rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transition: background-color 0.2s ease;
 }
 
 .nav-trigger[data-open='true'] {
-  color: #2563eb;
+    color: #2563eb;
 }
 
 .nav-trigger[data-open='true']::after {
-  background-color: #2563eb;
+    background-color: #2563eb;
 }
 
 .nav-chevron {
-  transition: transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .nav-trigger[data-open='true'] .nav-chevron {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .mega-menu {
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 12px 24px rgba(0, 20, 83, 0.1);
-  color: var(--color-brand);
-  margin-top: 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 24px rgba(0, 20, 83, 0.1);
+    color: var(--color-brand);
+    margin-top: 0.75rem;
 }
 
 .website-grid {
-  grid-template-columns: 1fr 1.12fr 1fr;
+    grid-template-columns: 1fr 1.12fr 1fr;
 }
 
 .online-store-grid {
-  grid-template-columns: 1fr 1fr
+    grid-template-columns: 1fr 1fr;
 }
 
 .mega-col {
-  
-  padding: 2.5rem 2.5rem 3.7rem 2.5rem;
+    padding: 2.5rem 2.5rem 3.7rem 2.5rem;
 }
 
 .mega-col-muted {
-  background-color: #f8f8f8;
-  height: 100%;
+    background-color: #f8f8f8;
+    height: 100%;
 }
 
 .mega-heading {
-  color: #4b5563;
-  font-size: 0.750rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  margin-bottom: 1.25rem;
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
 }
 
 .mega-link {
-  color: var(--color-brand);
-  display: block;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-top: 1.5rem;
+    color: var(--color-brand);
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 1.5rem;
 }
 
 .mega-sub {
-  color: var(--color-brand);
-  display: block;
-  font-size: 0.875rem;
-  line-height: 1.25;
-  margin-top: 0.25rem;
-  white-space: nowrap;
+    color: var(--color-brand);
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+}
+
+/* Mobile menu */
+.mobile-acc-trigger {
+    color: var(--color-brand);
+    cursor: pointer;
+    background: none;
+    gap: 0.5rem;
+}
+
+.mobile-acc-trigger:hover {
+    background-color: #f3f4f6;
+}
+
+.mobile-acc-heading {
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.mobile-acc-link {
+    color: var(--color-brand);
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.4rem 0;
+}
+
+.mobile-acc-link:hover {
+    text-decoration: underline;
+}
+
+.hamburger-line {
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
 }
