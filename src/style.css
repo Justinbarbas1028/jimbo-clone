@@ -253,3 +253,38 @@ el-dropdown[open] svg {
         transform 0.3s ease,
         opacity 0.3s ease;
 }
+
+.portfolio-carousel {
+    margin-left: calc(50% - 50vw);
+}
+
+.portfolio-track {
+    padding-left: 12vw;
+    padding-right: 12vw;
+}
+
+.portfolio-slide-item {
+    width: min(64vw, 640px);
+    transform: scale(0.9);
+    opacity: 0.55;
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
+}
+
+.portfolio-slide-item.is-active {
+    transform: scale(1.03);
+    opacity: 1;
+}
+
+.portfolio-slide-item img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    box-shadow: 0 24px 40px rgba(0, 20, 83, 0.18);
+}
+
+@media (min-width: 1024px) {
+    .portfolio-slide-item {
+        width: min(52vw, 820px);
+    }
+}

@@ -546,26 +546,132 @@
             </div>
         </section>
         </section class="h-auto">
-          <div class="flex justify-around items-center py-15 ">
-            <div class="max-w-137.5 mb-10 flex flex-col">
+          <div class="flex justify-evenly items-center py-15 ">
+            <div class="max-w-137.5 mb-10 flex flex-col items-center">
               <h2 class="text-[48px] text-center pb-10">How to make an online portfolio</h2>
               <p class="text-center pb-10">If you're a photographer, artist, designer, model, or creative, putting your work online is the best way to reach a larger audience. And you can do it in 4 easy steps.</p>
-              <ol class="list-decimal list-inside border-y">
+              <ol class="list-decimal list-inside border-y mb-6 border-gray-200">
                 <li class="my-6"><span>Sign up or log in with social media. You'll also be able to choose a domain (website address) for your portfolio site.</span></li>
                 <li class="mb-6"><span>Tell us a little about your work. Answer a few questions and our portfolio maker creates the website for you.</span></li>
                 <li class="mb-6"><span>Add your images. Connect your social media accounts to pull in your images from around the web, or easily upload them.</span></li>
                 <li class="mb-6"><span>Publish your site—and you're online! Then follow our quick and easy tips to optimize your portfolio site even more!</span></li>
               </ol>
-                    <button
-                        type="button"
-                        class="custom-blue mb-3 h-14 w-full rounded-l-sm font-bold text-white md:w-85"
-                    >
-                        Start now
-                    </button>
+              <button type="button" class="custom-blue mb-3 h-14 py-4 px-10  font-bold text-white ">Start now </button>
             </div>
-            <img src="/src/assets/images/steplist-portfolio.png" alt="" class="w-sm">
+            <img src="/src/assets/images/steplist-portfolio.png" alt="" class="w-md">
           </div>
         </section>
+
+
+        <section class="px-10 ">
+            <h2 class="text-[48px] text-center mb-6">What kind of portfolio website will you <br>create?</h2>
+            <div class="grid grid-cols-2 gap-10 ">
+                <div>
+                    <div><img src="/src/assets/images/branch-1.png" alt=""></div>
+                    <h3 class="text-[24px] my-6 font-bold">Graphic designer portfolio</h3>
+                    <div>
+                        <p class="text-[18px]">Your graphic design online portfolio shows off your skills and work examples in one place, from different design programs to different mediums.</p>
+                        <a href="" class="text-[18px] my-6 font-bold inline-flex items-center gap-2">Start Now <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+</svg>
+</a>
+                    </div>
+                </div>
+                <div>
+                    <div><img src="/src/assets/images/branch-2.png" alt=""></div>
+                    <h3 class="text-[24px] my-6 font-bold">Photographer portfolio</h3>
+                    <div>
+                        <p class="text-[18px]">Building a photography portfolio means focusing on the work, not the website. Jimdo’s modern designs keep your images front and center. You can accept bookings, too!</p>
+                                                <a href="" class="text-[18px] my-6 font-bold inline-flex items-center gap-2">Start Now <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+</svg>
+</a>
+                    </div>
+                </div>
+                <div>
+                    <div><img src="/src/assets/images/branch-3.png" alt=""></div>
+                    <h3 class="text-[24px] my-6 font-bold">Artist portfolio</h3>
+                    <div>
+                        <p class="text-[18px]">Want to put your art online and sell it, too? Upload high-resolution images, post new work, and build your client base with a portfolio and online store all in one.</p>
+                                                <a href="" class="text-[18px] my-6 font-bold inline-flex items-center gap-2">Start Now <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+</svg>
+</a>
+                    </div>
+                </div>
+                <div>
+                    <div><img src="/src/assets/images/branch-4.png" alt=""></div>
+                    <h3 class="text-[24px] my-6 font-bold">Model portfolio</h3>
+                    <div>
+                        <p class="text-[18px]">You’re versatile and stylish, and your portfolio can be too. A website is a platform that you control, and it’s easy to use images right from your social media accounts.</p>
+                                                <a href="" class="text-[18px] my-6 font-bold inline-flex items-center gap-2">Start Now <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+</svg>
+</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pb-20">
+            <h2 class="text-center text-[48px]">Get portfolio design inspiration with these examples</h2>
+            <p class="mt-6 text-center text-[36px]">Artists ♡ Jimdo! Spark your creativity with these website portfolio examples built with Jimdo.</p>
+            <div class="portfolio-carousel mt-12 w-screen" id="portfolio-carousel">
+                <div class="relative w-full">
+                    <button
+                        id="portfolio-prev"
+                        type="button"
+                        class="absolute top-1/2 left-4 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-3 text-brand shadow-sm transition hover:bg-gray-50"
+                        aria-label="Previous slide"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+
+                    <div class="overflow-hidden py-8">
+                        <div id="portfolio-track" class="portfolio-track flex items-center gap-10 transition-transform duration-500 ease-out will-change-transform">
+                            <div class="portfolio-slide-item shrink-0">
+                                <img src="/src/assets/images/website-1.png" alt="Example of a singer-songwriter portfolio website built with Jimdo" class="h-full w-full rounded-xl object-cover" />
+                            </div>
+                            <div class="portfolio-slide-item shrink-0">
+                                <img src="/src/assets/images/website-11.png" alt="Example of a fine art portfolio website built with Jimdo" class="h-full w-full rounded-xl object-cover" />
+                            </div>
+                            <div class="portfolio-slide-item shrink-0">
+                                <img src="/src/assets/images/website-12.png" alt="Example of a portfolio website built with Jimdo" class="h-full w-full rounded-xl object-cover" />
+                            </div>
+                            <div class="portfolio-slide-item shrink-0">
+                                <img src="/src/assets/images/dummy-website-4.png" alt="Example of a creative portfolio built with Jimdo" class="h-full w-full rounded-xl object-cover" />
+                            </div>
+                            <div class="portfolio-slide-item shrink-0">
+                                <img src="/src/assets/images/website-13.png" alt="Example of an artist portfolio website built with Jimdo" class="h-full w-full rounded-xl object-cover" />
+                            </div>
+                            <div class="portfolio-slide-item shrink-0">
+                                <img src="/src/assets/images/website-14.png" alt="Example of a graphic design portfolio website built with Jimdo" class="h-full w-full rounded-xl object-cover" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        id="portfolio-next"
+                        type="button"
+                        class="absolute top-1/2 right-4 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-3 text-brand shadow-sm transition hover:bg-gray-50"
+                        aria-label="Next slide"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5 15.75 12l-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="portfolio-dots" class="mt-5 flex items-center justify-center gap-2"></div>
+            </div>
+        </section>
+
+
+
+
+
+
         <script type="module" src="/src/main.ts"></script>
         <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
         <script>
@@ -623,6 +729,73 @@
                         }
                     })
                 })
+
+                // Portfolio carousel
+                const portfolioCarousel = document.getElementById('portfolio-carousel')
+                if (portfolioCarousel) {
+                    const track = document.getElementById('portfolio-track')
+                    const prevBtn = document.getElementById('portfolio-prev')
+                    const nextBtn = document.getElementById('portfolio-next')
+                    const dotsContainer = document.getElementById('portfolio-dots')
+                    const slides = Array.from(track.children)
+                    const totalSlides = slides.length
+                    let index = 0
+
+                    const createDots = (count) => {
+                        dotsContainer.innerHTML = ''
+                        for (let i = 0; i < count; i += 1) {
+                            const dot = document.createElement('button')
+                            dot.type = 'button'
+                            dot.className = 'h-2.5 w-2.5 rounded-full bg-gray-300 transition'
+                            dot.setAttribute('aria-label', `Go to slide ${i + 1}`)
+                            dot.addEventListener('click', () => {
+                                index = i
+                                updateCarousel()
+                            })
+                            dotsContainer.appendChild(dot)
+                        }
+                    }
+
+                    createDots(totalSlides)
+
+                    const updateCarousel = () => {
+                        if (!slides.length) return
+
+                        const containerWidth = portfolioCarousel.clientWidth
+                        const activeSlide = slides[index]
+                        const gap =
+                            parseFloat(window.getComputedStyle(track).columnGap || '0') ||
+                            parseFloat(window.getComputedStyle(track).gap || '0') ||
+                            0
+                        const slideWidth = activeSlide.getBoundingClientRect().width
+                        const slideStep = slideWidth + gap
+                        const centerOffset = (containerWidth - slideWidth) / 2
+                        const shift = index * slideStep - centerOffset
+                        track.style.transform = `translateX(-${shift}px)`
+
+                        slides.forEach((slide, slideIndex) => {
+                            slide.classList.toggle('is-active', slideIndex === index)
+                        })
+
+                        Array.from(dotsContainer.children).forEach((dot, dotIndex) => {
+                            dot.classList.toggle('bg-brand', dotIndex === index)
+                            dot.classList.toggle('bg-gray-300', dotIndex !== index)
+                        }
+                    }
+
+                    prevBtn.addEventListener('click', () => {
+                        index = (index - 1 + totalSlides) % totalSlides
+                        updateCarousel()
+                    })
+
+                    nextBtn.addEventListener('click', () => {
+                        index = (index + 1) % totalSlides
+                        updateCarousel()
+                    })
+
+                    window.addEventListener('resize', updateCarousel)
+                    updateCarousel()
+                }
             })
         </script>
     </body>
