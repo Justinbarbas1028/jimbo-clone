@@ -732,7 +732,7 @@
             </div>
 
             <div
-                class="portfolio-carousel relative mx-auto mt-12 w-full max-w-[1240px] px-4 sm:px-8"
+                class="portfolio-carousel mt-12"
                 id="portfolio-carousel"
             >
                 <button
@@ -1420,6 +1420,7 @@
                     let itemWidth = 0
                     let trackOffset = 0
                     let isAnimating = false
+                    const trackTransition = 'transform 720ms cubic-bezier(0.22, 0.61, 0.36, 1)'
 
                     const centerWindowIndex = Math.floor(visibleWindow / 2)
                     const totalItems = track.children.length
@@ -1428,14 +1429,15 @@
                     const updateScaling = (centerIndex = activeItemIndex) => {
                         const slides = getSlides()
                         slides.forEach((slide, index) => {
-                            slide.classList.add('transform', 'transition-all', 'duration-300')
+                            slide.classList.add('transform', 'transition-all', 'duration-500')
                             slide.classList.remove(
                                 'scale-100',
                                 'scale-80',
                                 'opacity-100',
                                 'opacity-60',
                                 'z-30',
-                                'z-10'
+                                'z-10',
+                                'duration-300'
                             )
 
                             if (index === centerIndex) {
@@ -1466,7 +1468,7 @@
                         updateScaling(activeItemIndex)
 
                         requestAnimationFrame(() => {
-                            track.style.transition = 'transform 500ms ease-in-out'
+                            track.style.transition = trackTransition
                         })
                     }
 
@@ -1476,7 +1478,7 @@
 
                         trackOffset -= itemWidth
                         updateScaling(activeItemIndex + 1)
-                        track.style.transition = 'transform 500ms ease-in-out'
+                        track.style.transition = trackTransition
                         track.style.transform = `translateX(${trackOffset}px)`
 
                         const handleNextEnd = (event) => {
@@ -1497,7 +1499,7 @@
                             updateScaling(activeItemIndex)
 
                             requestAnimationFrame(() => {
-                                track.style.transition = 'transform 500ms ease-in-out'
+                                track.style.transition = trackTransition
                                 isAnimating = false
                             })
                         }
@@ -1523,7 +1525,7 @@
                         void track.offsetHeight
                         updateScaling(activeItemIndex + 1)
 
-                        track.style.transition = 'transform 500ms ease-in-out'
+                        track.style.transition = trackTransition
                         trackOffset += itemWidth
                         track.style.transform = `translateX(${trackOffset}px)`
 

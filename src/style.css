@@ -217,7 +217,9 @@ el-dropdown[open] svg {
 }
 
 .portfolio-carousel {
-    --portfolio-gap: 1.25rem;
+    --portfolio-gap: 0.75rem;
+    @apply relative w-screen;
+    margin-left: calc(50% - 50vw);
 }
 
 .portfolio-track {
@@ -234,7 +236,7 @@ el-dropdown[open] svg {
 }
 
 .portfolio-slide-item img {
-    @apply aspect-[16/10] w-full rounded-lg bg-white object-cover shadow-lg;
+    @apply block aspect-[16/10] w-full object-cover;
 }
 
 .portfolio-nav-btn {
@@ -246,24 +248,24 @@ el-dropdown[open] svg {
 }
 
 .portfolio-nav-btn.left {
-    left: 0;
-    transform: translate(-35%, -50%);
+    left: 0.75rem;
+    transform: translateY(-50%);
 }
 
 .portfolio-nav-btn.right {
-    right: 0;
-    transform: translate(35%, -50%);
+    right: 0.75rem;
+    transform: translateY(-50%);
 }
 
 @media (max-width: 1024px) {
     .portfolio-carousel {
-        --portfolio-gap: 0.9rem;
+        --portfolio-gap: 0.55rem;
     }
 }
 
 @media (max-width: 640px) {
     .portfolio-carousel {
-        --portfolio-gap: 0.65rem;
+        --portfolio-gap: 0.4rem;
     }
 
     .portfolio-nav-btn {
