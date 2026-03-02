@@ -8,140 +8,7 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         />
-        <style>
-            .portfolio-viewport {
-                width: 100%;
-                max-width: 1320px;
-            }
-
-            .portfolio-carousel {
-                position: relative;
-                width: 100%;
-                background: #f3f3f3;
-                padding: 2.5rem 0 1.25rem;
-                overflow: hidden;
-            }
-
-            .portfolio-track {
-                display: grid;
-                grid-template-columns: minmax(220px, 1fr) minmax(520px, 1.3fr) minmax(220px, 1fr);
-                gap: 2rem;
-                align-items: center;
-            }
-
-            .portfolio-slide-item {
-                display: none;
-                width: 100%;
-                position: relative;
-                border-radius: 0.75rem;
-                overflow: hidden;
-                transition:
-                    transform 0.35s ease,
-                    opacity 0.35s ease,
-                    filter 0.35s ease;
-            }
-
-            .portfolio-slide-item.is-visible {
-                display: block;
-            }
-
-            .portfolio-slide-item.is-side {
-                opacity: 0.55;
-                transform: scale(0.92);
-                filter: saturate(85%);
-            }
-
-            .portfolio-slide-item.is-active {
-                opacity: 1;
-                transform: scale(1);
-                z-index: 2;
-            }
-
-            .carousel-arrow {
-                position: absolute;
-                top: 50%;
-                z-index: 10;
-                display: inline-flex;
-                height: 3rem;
-                width: 3rem;
-                transform: translateY(-50%);
-                align-items: center;
-                justify-content: center;
-                border-radius: 9999px;
-                background: #ffffff;
-                color: #1f2937;
-                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
-                transition:
-                    transform 0.2s ease,
-                    box-shadow 0.2s ease;
-            }
-
-            .carousel-arrow:hover {
-                transform: translateY(-50%) scale(1.04);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            }
-
-            .carousel-arrow.left {
-                left: 1.25rem;
-            }
-
-            .carousel-arrow.right {
-                right: 1.25rem;
-            }
-
-            .portfolio-dots {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.65rem;
-                padding: 1.5rem 0 0.25rem;
-            }
-
-            .portfolio-dot {
-                height: 0.7rem;
-                width: 0.7rem;
-                border-radius: 9999px;
-                background: #cfd6dd;
-                transition:
-                    background-color 0.2s ease,
-                    transform 0.2s ease;
-            }
-
-            .portfolio-dot.active {
-                background: #2563eb;
-                transform: scale(1.05);
-            }
-
-            @media (max-width: 1024px) {
-                .portfolio-track {
-                    grid-template-columns: 1fr 1.2fr 1fr;
-                    gap: 1rem;
-                }
-
-                .carousel-arrow.left {
-                    left: 0.75rem;
-                }
-
-                .carousel-arrow.right {
-                    right: 0.75rem;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .portfolio-track {
-                    grid-template-columns: 1fr;
-                }
-
-                .portfolio-slide-item.is-side {
-                    display: none !important;
-                }
-
-                .carousel-arrow {
-                    height: 2.5rem;
-                    width: 2.5rem;
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="/src/styles/main.css" />
         <title>my-project</title>
     </head>
     <body class="font-euclid">
@@ -390,7 +257,7 @@
                             </el-menu>
                         </el-dropdown>
                     </li>
-                    <li><a href="#" class="nav-link">Login</a></li>
+                    <li><a href="#" class="nav-link">Log In</a></li>
                 </ul>
             </div>
         </nav>
@@ -576,72 +443,74 @@
             </ul>
         </div>
 
-        <section
-            class="section-medium container grid grid-cols-1 items-center gap-4 md:grid-cols-2 xl:grid-cols-2"
-        >
-            <div class="min-size-150 flex h-full flex-col gap-10">
-                <h2 class="text-[32px] md:text-5xl">Create an Online Portfolio With Jimdo</h2>
-                <ul class="flex flex-col gap-3">
-                    <li class="flex items-center gap-2">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="size-6 text-[#004ced]"
+        <section class="container pt-[80px] pb-[120px]">
+            <div class="grid grid-cols-1 items-center gap-4 p-[40px] md:grid-cols-2 xl:grid-cols-2">
+                <div class="min-size-150 flex h-full flex-col gap-10">
+                    <h2 class="text-[32px] md:text-5xl">Create an Online Portfolio With Jimdo</h2>
+                    <ul class="flex flex-col gap-3">
+                        <li class="flex items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="size-6 text-[#004ced]"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            <p class="text-[16px] md:text-[20px]">
+                                Perfect for artist and creatives
+                            </p>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="size-6 text-[#004ced]"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            <p class="text-[16px] md:text-[20px]">Reach a larger audience</p>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                class="size-6 text-[#004ced]"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            <p class="text-[16px] md:text-[20px]">Show of what you can do</p>
+                        </li>
+                    </ul>
+                    <div>
+                        <button
+                            type="button"
+                            class="custom-blue h-14 w-full font-bold text-white md:w-85"
                         >
-                            <path
-                                fill-rule="evenodd"
-                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                        <p class="text-[16px] md:text-[20px]">Perfect for artist and creatives</p>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="size-6 text-[#004ced]"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                        <p class="text-[16px] md:text-[20px]">Reach a larger audience</p>
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            class="size-6 text-[#004ced]"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                clip-rule="evenodd"
-                            />
-                        </svg>
-                        <p class="text-[16px] md:text-[20px]">Show of what you can do</p>
-                    </li>
-                </ul>
-                <div>
-                    <button
-                        type="button"
-                        class="custom-blue h-14 w-full rounded-l-sm pb-3 font-bold text-white md:w-85"
-                    >
-                        Start now
-                    </button>
-                    <p class="w-full text-center text-sm text-gray-500 md:w-85">
-                        Start for free upgrade anytime to one of our premium plans
-                    </p>
+                            Start now
+                        </button>
+                        <p class="mt-[16px] w-full text-center text-sm text-gray-500 md:w-85">
+                            Start for free upgrade anytime to one of our premium plans
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="min-size-150 flex items-center justify-center">
-                <img src="/src/assets/images/hero-image.png" alt="" srcset="" />
+                <div class="min-size-150 flex items-center justify-center">
+                    <img src="/src/assets/images/hero-image.png" alt="" srcset="" />
+                </div>
             </div>
         </section>
         <section class="section-medium container">
@@ -684,34 +553,34 @@
         </section>
         <section class="section-medium container h-auto">
             <div class="flex items-center justify-evenly py-15">
-                <div class="flex max-w-137.5 flex-col items-center pb-10">
-                    <h2 class="pb-10 text-center text-[48px]">How to make an online portfolio</h2>
-                    <p class="pb-10 text-center">
+                <div class="flex max-w-152.5 flex-col items-center pb-10">
+                    <h2 class="mb-10 text-center text-[48px]">How to make an online portfolio</h2>
+                    <p class="mb-10 text-center">
                         If you're a photographer, artist, designer, model, or creative, putting your
                         work online is the best way to reach a larger audience. And you can do it in
                         4 easy steps.
                     </p>
                     <ol class="list-inside list-decimal border-y border-gray-200 pb-6">
-                        <li class="py-6">
-                            <span
+                        <li>
+                            <span class="mb-6 ml-6"
                                 >Sign up or log in with social media. You'll also be able to choose
                                 a domain (website address) for your portfolio site.</span
                             >
                         </li>
-                        <li class="pb-6">
-                            <span
+                        <li>
+                            <span class="mb-6 ml-6"
                                 >Tell us a little about your work. Answer a few questions and our
                                 portfolio maker creates the website for you.</span
                             >
                         </li>
-                        <li class="pb-6">
-                            <span
+                        <li>
+                            <span class="mb-6 ml-6"
                                 >Add your images. Connect your social media accounts to pull in your
                                 images from around the web, or easily upload them.</span
                             >
                         </li>
-                        <li class="pb-6">
-                            <span
+                        <li>
+                            <span class="mb-6 ml-6"
                                 >Publish your site—and you're online! Then follow our quick and easy
                                 tips to optimize your portfolio site even more!</span
                             >
@@ -724,7 +593,7 @@
                         Start now
                     </button>
                 </div>
-                <img src="/src/assets/images/steplist-portfolio.png" alt="" class="w-md" />
+                <img src="/src/assets/images/steplist-portfolio.png" alt="" class="w-120" />
             </div>
         </section>
 
@@ -879,48 +748,48 @@
                         </svg>
                     </button>
 
-                    <div class="portfolio-viewport mx-auto w-full max-w-full overflow-hidden py-8">
+                    <div class="portfolio-viewport mx-auto w-full max-w-full py-8">
                         <div id="portfolio-track" class="portfolio-track">
-                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
+                            <div class="portfolio-slide-item">
                                 <img
                                     src="/src/assets/images/website-1.png"
                                     alt="Example of a singer-songwriter portfolio website built with Jimdo"
-                                    class="h-full w-full rounded-xl object-cover"
+                                    class="w-full rounded-xl"
                                 />
                             </div>
-                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
+                            <div class="portfolio-slide-item">
                                 <img
                                     src="/src/assets/images/website-11.png"
                                     alt="Example of a fine art portfolio website built with Jimdo"
-                                    class="h-full w-full rounded-xl object-cover"
+                                    class="w-full rounded-xl"
                                 />
                             </div>
-                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
+                            <div class="portfolio-slide-item">
                                 <img
                                     src="/src/assets/images/website-12.png"
                                     alt="Example of a portfolio website built with Jimdo"
-                                    class="h-full w-full rounded-xl object-cover"
+                                    class="w-full rounded-xl"
                                 />
                             </div>
-                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
+                            <div class="portfolio-slide-item">
                                 <img
                                     src="/src/assets/images/dummy-website-4.png"
                                     alt="Example of a creative portfolio built with Jimdo"
-                                    class="h-full w-full rounded-xl object-cover"
+                                    class="w-full rounded-xl"
                                 />
                             </div>
-                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
+                            <div class="portfolio-slide-item">
                                 <img
                                     src="/src/assets/images/website-13.png"
                                     alt="Example of an artist portfolio website built with Jimdo"
-                                    class="h-full w-full rounded-xl object-cover"
+                                    class="w-full rounded-xl"
                                 />
                             </div>
-                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
+                            <div class="portfolio-slide-item">
                                 <img
                                     src="/src/assets/images/website-14.png"
                                     alt="Example of a graphic design portfolio website built with Jimdo"
-                                    class="h-full w-full rounded-xl object-cover"
+                                    class="w-full rounded-xl"
                                 />
                             </div>
                         </div>

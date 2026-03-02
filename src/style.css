@@ -73,7 +73,7 @@
 @font-face {
     font-family: 'Euclid Circular';
     src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold.ttf') format('truetype');
-    font-weight: 600;
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
@@ -81,7 +81,7 @@
 @font-face {
     font-family: 'Euclid Circular';
     src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold%20Italic.ttf') format('truetype');
-    font-weight: 600;
+    font-weight: 500;
     font-style: italic;
     font-display: swap;
 }
@@ -131,7 +131,7 @@ el-dropdown[open] svg {
 
 .nav-link,
 .nav-trigger {
-    @apply text-brand inline-flex items-center text-base leading-[1.2] font-semibold;
+    @apply text-brand inline-flex items-center text-base leading-[1.2] font-medium;
 }
 
 .nav-trigger {
@@ -303,17 +303,18 @@ el-dropdown[open] svg {
 
 .container {
     width: 100%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 20px;
     padding-right: 20px;
 }
 
 .container-wide {
     width: 100%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 30px;
     padding-right: 30px;
-    max-width: 1400px;
 }
 
 /* =========================
@@ -495,6 +496,6 @@ el-dropdown[open] svg {
 
 @media (min-width: 1400px) {
     .container {
-        max-width: 1320px;
+        max-width: 1600px;
     }
 }
