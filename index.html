@@ -4,12 +4,149 @@
         <meta charset="UTF-8" />
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        />
+        <style>
+            .portfolio-viewport {
+                width: 100%;
+                max-width: 1320px;
+            }
 
+            .portfolio-carousel {
+                position: relative;
+                width: 100%;
+                background: #f3f3f3;
+                padding: 2.5rem 0 1.25rem;
+                overflow: hidden;
+            }
+
+            .portfolio-track {
+                display: grid;
+                grid-template-columns: minmax(220px, 1fr) minmax(520px, 1.3fr) minmax(220px, 1fr);
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .portfolio-slide-item {
+                display: none;
+                width: 100%;
+                position: relative;
+                border-radius: 0.75rem;
+                overflow: hidden;
+                transition:
+                    transform 0.35s ease,
+                    opacity 0.35s ease,
+                    filter 0.35s ease;
+            }
+
+            .portfolio-slide-item.is-visible {
+                display: block;
+            }
+
+            .portfolio-slide-item.is-side {
+                opacity: 0.55;
+                transform: scale(0.92);
+                filter: saturate(85%);
+            }
+
+            .portfolio-slide-item.is-active {
+                opacity: 1;
+                transform: scale(1);
+                z-index: 2;
+            }
+
+            .carousel-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 10;
+                display: inline-flex;
+                height: 3rem;
+                width: 3rem;
+                transform: translateY(-50%);
+                align-items: center;
+                justify-content: center;
+                border-radius: 9999px;
+                background: #ffffff;
+                color: #1f2937;
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+                transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+            }
+
+            .carousel-arrow:hover {
+                transform: translateY(-50%) scale(1.04);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .carousel-arrow.left {
+                left: 1.25rem;
+            }
+
+            .carousel-arrow.right {
+                right: 1.25rem;
+            }
+
+            .portfolio-dots {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.65rem;
+                padding: 1.5rem 0 0.25rem;
+            }
+
+            .portfolio-dot {
+                height: 0.7rem;
+                width: 0.7rem;
+                border-radius: 9999px;
+                background: #cfd6dd;
+                transition:
+                    background-color 0.2s ease,
+                    transform 0.2s ease;
+            }
+
+            .portfolio-dot.active {
+                background: #2563eb;
+                transform: scale(1.05);
+            }
+
+            @media (max-width: 1024px) {
+                .portfolio-track {
+                    grid-template-columns: 1fr 1.2fr 1fr;
+                    gap: 1rem;
+                }
+
+                .carousel-arrow.left {
+                    left: 0.75rem;
+                }
+
+                .carousel-arrow.right {
+                    right: 0.75rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .portfolio-track {
+                    grid-template-columns: 1fr;
+                }
+
+                .portfolio-slide-item.is-side {
+                    display: none !important;
+                }
+
+                .carousel-arrow {
+                    height: 2.5rem;
+                    width: 2.5rem;
+                }
+            }
+        </style>
         <title>my-project</title>
     </head>
-    <body class="font-euclid px-[40px]">
-        <nav class="sticky top-0 z-50 border-b border-gray-200 bg-white px-4 shadow-sm lg:px-47">
-            <div class="lg:px8 mx-auto flex h-16 items-center justify-between px-2 lg:h-22.5">
+    <body class="font-euclid">
+        <nav class="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
+            <div class="container flex h-16 items-center justify-between lg:h-22.5">
                 <div class="text-brand w-26 text-lg font-semibold">
                     <img
                         src="/src/assets/images/7ed1b2a4-7810-4fd1-bd97-64a10f193402.png"
@@ -440,7 +577,7 @@
         </div>
 
         <section
-            class="grid grid-cols-1 items-center gap-4 px-10 py-30 min-[765px]:px-10 min-[990px]:px-10 md:grid-cols-2 xl:grid-cols-2 2xl:px-50"
+            class="section-medium container grid grid-cols-1 items-center gap-4 md:grid-cols-2 xl:grid-cols-2"
         >
             <div class="min-size-150 flex h-full flex-col gap-10">
                 <h2 class="text-[32px] md:text-5xl">Create an Online Portfolio With Jimdo</h2>
@@ -494,7 +631,7 @@
                 <div>
                     <button
                         type="button"
-                        class="custom-blue mb-3 h-14 w-full rounded-l-sm font-bold text-white md:w-85"
+                        class="custom-blue h-14 w-full rounded-l-sm pb-3 font-bold text-white md:w-85"
                     >
                         Start now
                     </button>
@@ -507,13 +644,13 @@
                 <img src="/src/assets/images/hero-image.png" alt="" srcset="" />
             </div>
         </section>
-        <section class="">
+        <section class="section-medium container">
             <div>
-                <h2 class="text-center text-[48px]">TEST</h2>
+                <h2 class="text-center text-[48px]">Portfolio site features that matter</h2>
             </div>
-            <div class="flex h-auto w-screen items-center justify-evenly gap-10 px-10 py-15">
+            <div class="mx-auto flex h-auto w-full items-center justify-evenly gap-10 py-15">
                 <div>
-                    <h3 class="mb-6 text-[32px]">Beautiful visuals, by design</h3>
+                    <h3 class="pb-6 text-[32px]">Beautiful visuals, by design</h3>
                     <p>
                         Polished. Professional. Eye-catching. With Jimdo's design tools, your online
                         portfolio makes the best impression. Choose colors and fonts, and even
@@ -522,9 +659,9 @@
                 </div>
                 <img src="/src/assets/images/feature-1.png" alt="" srcset="" />
             </div>
-            <div class="flex h-auto w-screen items-center justify-evenly gap-10 px-10 py-15">
+            <div class="mx-auto flex h-auto w-full items-center justify-evenly gap-10 py-15">
                 <div class="order-2">
-                    <h3 class="mb-6 text-[32px]">Help search engines find you</h3>
+                    <h3 class="pb-6 text-[32px]">Help search engines find you</h3>
                     <p>
                         Want your portfolio website to find the right audience? Our automatic SEO
                         tools and tips walk you through every step, even if you’re a beginner. Show
@@ -533,9 +670,9 @@
                 </div>
                 <img src="/src/assets/images/feature-2.png" alt="" srcset="" class="order-1" />
             </div>
-            <div class="flex h-auto w-screen items-center justify-evenly gap-10 px-10 py-15">
+            <div class="mx-auto flex h-auto w-full items-center justify-evenly gap-10 py-15">
                 <div>
-                    <h3 class="mb-6 text-[32px]">Connect to social media in seconds</h3>
+                    <h3 class="pb-6 text-[32px]">Connect to social media in seconds</h3>
                     <p>
                         Already using Facebook? That makes it even easier to build your online
                         portfolio. Pull in photos right from your existing accounts, so your website
@@ -545,35 +682,35 @@
                 <img src="/src/assets/images/feature-3.png" alt="" srcset="" />
             </div>
         </section>
-        <section class="h-auto">
+        <section class="section-medium container h-auto">
             <div class="flex items-center justify-evenly py-15">
-                <div class="mb-10 flex max-w-137.5 flex-col items-center">
+                <div class="flex max-w-137.5 flex-col items-center pb-10">
                     <h2 class="pb-10 text-center text-[48px]">How to make an online portfolio</h2>
                     <p class="pb-10 text-center">
                         If you're a photographer, artist, designer, model, or creative, putting your
                         work online is the best way to reach a larger audience. And you can do it in
                         4 easy steps.
                     </p>
-                    <ol class="mb-6 list-inside list-decimal border-y border-gray-200">
-                        <li class="my-6">
+                    <ol class="list-inside list-decimal border-y border-gray-200 pb-6">
+                        <li class="py-6">
                             <span
                                 >Sign up or log in with social media. You'll also be able to choose
                                 a domain (website address) for your portfolio site.</span
                             >
                         </li>
-                        <li class="mb-6">
+                        <li class="pb-6">
                             <span
                                 >Tell us a little about your work. Answer a few questions and our
                                 portfolio maker creates the website for you.</span
                             >
                         </li>
-                        <li class="mb-6">
+                        <li class="pb-6">
                             <span
                                 >Add your images. Connect your social media accounts to pull in your
                                 images from around the web, or easily upload them.</span
                             >
                         </li>
-                        <li class="mb-6">
+                        <li class="pb-6">
                             <span
                                 >Publish your site—and you're online! Then follow our quick and easy
                                 tips to optimize your portfolio site even more!</span
@@ -582,7 +719,7 @@
                     </ol>
                     <button
                         type="button"
-                        class="custom-blue mb-3 h-14 px-10 py-4 font-bold text-white"
+                        class="custom-blue h-14 px-10 py-4 pb-3 font-bold text-white"
                     >
                         Start now
                     </button>
@@ -591,21 +728,21 @@
             </div>
         </section>
 
-        <section class="px-10">
-            <h2 class="mb-6 text-center text-[48px]">
-                What kind of portfolio website will you <br />create?
+        <section class="section-medium container">
+            <h2 class="pb-6 text-center text-[48px]">
+                What kind of portfolio website will you create?
             </h2>
             <div class="grid grid-cols-2 gap-10">
                 <div>
                     <div><img src="/src/assets/images/branch-1.png" alt="" /></div>
-                    <h3 class="my-6 text-[24px] font-bold">Graphic designer portfolio</h3>
+                    <h3 class="py-6 text-[24px] font-bold">Graphic designer portfolio</h3>
                     <div>
                         <p class="text-[18px]">
                             Your graphic design online portfolio shows off your skills and work
                             examples in one place, from different design programs to different
                             mediums.
                         </p>
-                        <a href="" class="my-6 inline-flex items-center gap-2 text-[18px] font-bold"
+                        <a href="" class="inline-flex items-center gap-2 py-6 text-[18px] font-bold"
                             >Start Now
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -626,14 +763,14 @@
                 </div>
                 <div>
                     <div><img src="/src/assets/images/branch-2.png" alt="" /></div>
-                    <h3 class="my-6 text-[24px] font-bold">Photographer portfolio</h3>
+                    <h3 class="py-6 text-[24px] font-bold">Photographer portfolio</h3>
                     <div>
                         <p class="text-[18px]">
                             Building a photography portfolio means focusing on the work, not the
                             website. Jimdo’s modern designs keep your images front and center. You
                             can accept bookings, too!
                         </p>
-                        <a href="" class="my-6 inline-flex items-center gap-2 text-[18px] font-bold"
+                        <a href="" class="inline-flex items-center gap-2 py-6 text-[18px] font-bold"
                             >Start Now
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -654,14 +791,14 @@
                 </div>
                 <div>
                     <div><img src="/src/assets/images/branch-3.png" alt="" /></div>
-                    <h3 class="my-6 text-[24px] font-bold">Artist portfolio</h3>
+                    <h3 class="py-6 text-[24px] font-bold">Artist portfolio</h3>
                     <div>
                         <p class="text-[18px]">
                             Want to put your art online and sell it, too? Upload high-resolution
                             images, post new work, and build your client base with a portfolio and
                             online store all in one.
                         </p>
-                        <a href="" class="my-6 inline-flex items-center gap-2 text-[18px] font-bold"
+                        <a href="" class="inline-flex items-center gap-2 py-6 text-[18px] font-bold"
                             >Start Now
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -682,14 +819,14 @@
                 </div>
                 <div>
                     <div><img src="/src/assets/images/branch-4.png" alt="" /></div>
-                    <h3 class="my-6 text-[24px] font-bold">Model portfolio</h3>
+                    <h3 class="py-6 text-[24px] font-bold">Model portfolio</h3>
                     <div>
                         <p class="text-[18px]">
                             You’re versatile and stylish, and your portfolio can be too. A website
                             is a platform that you control, and it’s easy to use images right from
                             your social media accounts.
                         </p>
-                        <a href="" class="my-6 inline-flex items-center gap-2 text-[18px] font-bold"
+                        <a href="" class="inline-flex items-center gap-2 py-6 text-[18px] font-bold"
                             >Start Now
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -710,15 +847,15 @@
                 </div>
             </div>
         </section>
-        <section class="pb-20">
+        <section class="section-medium container pb-20">
             <h2 class="text-center text-[48px]">
                 Get portfolio design inspiration with these examples
             </h2>
-            <p class="mt-6 text-center text-[36px]">
+            <p class="pt-6 text-center text-[20px]">
                 Artists ♡ Jimdo! Spark your creativity with these website portfolio examples built
                 with Jimdo.
             </p>
-            <div class="portfolio-carousel mt-12 w-screen" id="portfolio-carousel">
+            <div class="portfolio-carousel w-screen pt-12" id="portfolio-carousel">
                 <div class="relative w-full">
                     <button
                         id="portfolio-prev"
@@ -742,47 +879,44 @@
                         </svg>
                     </button>
 
-                    <div class="overflow-hidden py-8">
-                        <div
-                            id="portfolio-track"
-                            class="portfolio-track flex items-center gap-10 transition-transform duration-500 ease-out will-change-transform"
-                        >
-                            <div class="portfolio-slide-item shrink-0">
+                    <div class="portfolio-viewport mx-auto w-full max-w-full overflow-hidden py-8">
+                        <div id="portfolio-track" class="portfolio-track">
+                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
                                 <img
                                     src="/src/assets/images/website-1.png"
                                     alt="Example of a singer-songwriter portfolio website built with Jimdo"
                                     class="h-full w-full rounded-xl object-cover"
                                 />
                             </div>
-                            <div class="portfolio-slide-item shrink-0">
+                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
                                 <img
                                     src="/src/assets/images/website-11.png"
                                     alt="Example of a fine art portfolio website built with Jimdo"
                                     class="h-full w-full rounded-xl object-cover"
                                 />
                             </div>
-                            <div class="portfolio-slide-item shrink-0">
+                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
                                 <img
                                     src="/src/assets/images/website-12.png"
                                     alt="Example of a portfolio website built with Jimdo"
                                     class="h-full w-full rounded-xl object-cover"
                                 />
                             </div>
-                            <div class="portfolio-slide-item shrink-0">
+                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
                                 <img
                                     src="/src/assets/images/dummy-website-4.png"
                                     alt="Example of a creative portfolio built with Jimdo"
                                     class="h-full w-full rounded-xl object-cover"
                                 />
                             </div>
-                            <div class="portfolio-slide-item shrink-0">
+                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
                                 <img
                                     src="/src/assets/images/website-13.png"
                                     alt="Example of an artist portfolio website built with Jimdo"
                                     class="h-full w-full rounded-xl object-cover"
                                 />
                             </div>
-                            <div class="portfolio-slide-item shrink-0">
+                            <div class="portfolio-slide-item h-[180px] md:h-[420px]">
                                 <img
                                     src="/src/assets/images/website-14.png"
                                     alt="Example of a graphic design portfolio website built with Jimdo"
@@ -819,43 +953,30 @@
             </div>
         </section>
 
-        <section class="py-[128px]">
-            <div>
+        <section class="section-large bg-gray-100">
+            <div class="container">
+                <h2 class="pb-10 text-center text-[48px] font-medium md:pb-12">
+                    Online portfolio FAQ
+                </h2>
                 <div
                     id="accordion-open"
-                    data-accordion="open"
-                    class="rounded-base border-default overflow-hidden border shadow-xs"
+                    data-accordion="collapse"
+                    class="overflow-hidden border border-gray-200 bg-white"
                 >
                     <h2 id="accordion-open-heading-1">
                         <button
                             type="button"
-                            class="text-body rounded-t-base border-b-default hover:text-heading hover:bg-neutral-secondary-medium flex w-full items-center justify-between gap-3 border border-x-0 border-t-0 p-5 font-medium rtl:text-right"
+                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
                             data-accordion-target="#accordion-open-body-1"
-                            aria-expanded="true"
+                            aria-expanded="false"
                             aria-controls="accordion-open-body-1"
                         >
                             <span class="flex items-center"
-                                ><svg
-                                    class="me-2 h-5 w-5 shrink-0"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                                    /></svg
-                                >What is Flowbite?</span
+                                >What are the benefits of having an online portfolio?</span
                             >
                             <svg
                                 data-accordion-icon
-                                class="h-5 w-5 shrink-0 rotate-180"
+                                class="h-6 w-6 shrink-0"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -875,57 +996,35 @@
                     </h2>
                     <div
                         id="accordion-open-body-1"
-                        class="border-b-default hidden border border-s-0 border-e-0 border-t-0"
+                        class="hidden border-b border-gray-200"
                         aria-labelledby="accordion-open-heading-1"
                     >
-                        <div class="p-4 md:p-5">
-                            <p class="text-body mb-2">
-                                Flowbite is an open-source library of interactive components built
-                                on top of Tailwind CSS including buttons, dropdowns, modals,
-                                navbars, and more.
-                            </p>
-                            <p class="text-body">
-                                Check out this guide to learn how to
-                                <a
-                                    href="/docs/getting-started/introduction/"
-                                    class="text-fg-brand hover:underline"
-                                    >get started</a
-                                >
-                                and start developing websites even faster with components on top of
-                                Tailwind CSS.
+                        <div class="px-5 py-5 md:px-12">
+                            <p class="mb-2 text-[16px] text-gray-700">
+                                Creating an online portfolio is one of the best ways to show off
+                                your best work, all in one place. Even if you’re already using
+                                different social media accounts, putting your portfolio online gives
+                                you an online hub for potential clients, customers, agencies, and
+                                recruiters to see what you can do. It’s all on a platform you
+                                control, no matter how social media trends change. Plus, you can
+                                customize your design exactly how you want it.
                             </p>
                         </div>
                     </div>
                     <h2 id="accordion-open-heading-2">
                         <button
                             type="button"
-                            class="text-body border-b-default hover:text-heading hover:bg-neutral-secondary-medium flex w-full items-center justify-between gap-3 border border-x-0 border-t-0 p-5 font-medium rtl:text-right"
+                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
                             data-accordion-target="#accordion-open-body-2"
                             aria-expanded="false"
                             aria-controls="accordion-open-body-2"
                         >
                             <span class="flex items-center"
-                                ><svg
-                                    class="me-2 h-5 w-5 shrink-0"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                                    /></svg
-                                >Is there a Figma file available?</span
+                                >How do I make a good portfolio website?</span
                             >
                             <svg
                                 data-accordion-icon
-                                class="h-5 w-5 shrink-0 rotate-180"
+                                class="h-6 w-6 shrink-0"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -945,58 +1044,38 @@
                     </h2>
                     <div
                         id="accordion-open-body-2"
-                        class="border-b-default hidden border border-s-0 border-e-0 border-t-0"
+                        class="hidden border-b border-gray-200"
                         aria-labelledby="accordion-open-heading-2"
                     >
-                        <div class="p-4 md:p-5">
-                            <p class="text-body mb-2">
-                                Flowbite is first conceptualized and designed using the Figma
-                                software so everything you see in the library has a design
-                                equivalent in our Figma file.
-                            </p>
-                            <p class="text-body">
-                                Check out the
-                                <a
-                                    href="https://flowbite.com/figma/"
-                                    class="text-fg-brand hover:underline"
-                                    >Figma design system</a
-                                >
-                                based on the utility classes from Tailwind CSS and components from
-                                Flowbite.
+                        <div class="px-5 py-5 md:px-12">
+                            <p class="mb-2 text-[16px] text-gray-700">
+                                Fortunately with Jimdo, most of the portfolio creation is already
+                                done for you! The best way to create a good online portfolio is to
+                                start with a custom domain. That shows the world that you take your
+                                project seriously and professionally. Once you put your portfolio
+                                online, make sure you use high-quality images, and choose a
+                                high-impact image for the header of your homepage to grab people’s
+                                attention. In addition to design, be sure to take a few minutes to
+                                optimize your site for search engines (Jimdo will walk you through
+                                how to do that). That way, your portfolio will start showing up in
+                                search engines for the right audience, and your traffic will grow.
                             </p>
                         </div>
                     </div>
                     <h2 id="accordion-open-heading-3">
                         <button
                             type="button"
-                            class="text-body hover:text-heading hover:bg-neutral-secondary-medium flex w-full items-center justify-between gap-3 p-5 font-medium rtl:text-right"
+                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
                             data-accordion-target="#accordion-open-body-3"
                             aria-expanded="false"
                             aria-controls="accordion-open-body-3"
                         >
-                            <span class="flex items-center"
-                                ><svg
-                                    class="me-2 h-5 w-5 shrink-0"
-                                    aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="24"
-                                    height="24"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                                    />
-                                </svg>
-                                What are the differences between Flowbite and Tailwind UI?</span
-                            >
+                            <span class="flex items-center">
+                                What should I put in my online portfolio?
+                            </span>
                             <svg
                                 data-accordion-icon
-                                class="h-5 w-5 shrink-0 rotate-180"
+                                class="h-6 w-6 shrink-0"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -1016,79 +1095,349 @@
                     </h2>
                     <div
                         id="accordion-open-body-3"
-                        class="hidden"
+                        class="hidden border-b border-gray-200"
                         aria-labelledby="accordion-open-heading-3"
                     >
-                        <div class="border-t-default border border-x-0 border-b-0 p-4 md:p-5">
-                            <p class="text-body mb-2">
-                                The main difference is that the core components from Flowbite are
-                                open source under the MIT license, whereas Tailwind UI is a paid
-                                product. Another difference is that Flowbite relies on smaller and
-                                standalone components, whereas Tailwind UI offers sections of pages.
+                        <div class="px-5 py-5 md:px-12">
+                            <p class="mb-2 text-[16px] text-gray-700">
+                                A good portfolio website doesn’t have to be complicated. It’s a good
+                                idea to include a short bio and headshot on your About page, as well
+                                as any relevant skills or experience. Then, you can have some fun
+                                putting together the visuals on your site, either in a slide show or
+                                just by placing the images on your web pages. When you do this, try
+                                to choose just your best work. Don’t post everything you’ve ever
+                                done—be picky and keep in mind that many online visitors have short
+                                attention spans and don’t want to browse through years of your work.
+                                You can also easily add a contact form so visitors know how to get
+                                in touch with you.
                             </p>
-                            <p class="text-body mb-2">
-                                However, we actually recommend using both Flowbite, Flowbite Pro,
-                                and even Tailwind UI as there is no technical reason stopping you
-                                from using the best of two worlds.
+                        </div>
+                    </div>
+                    <h2 id="accordion-open-heading-4">
+                        <button
+                            type="button"
+                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
+                            data-accordion-target="#accordion-open-body-4"
+                            aria-expanded="false"
+                            aria-controls="accordion-open-body-4"
+                        >
+                            <span class="flex items-center">
+                                Why is an online portfolio important for a designer?
+                            </span>
+                            <svg
+                                data-accordion-icon
+                                class="h-6 w-6 shrink-0"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m5 15 7-7 7 7"
+                                />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div
+                        id="accordion-open-body-4"
+                        class="hidden border-b border-gray-200"
+                        aria-labelledby="accordion-open-heading-4"
+                    >
+                        <div class="px-5 py-5 md:px-12">
+                            <p class="mb-2 text-[16px] text-gray-700">
+                                When you’re a designer, visuals are a huge part of the story. An
+                                online portfolio helps you go beyond a paper resume and portfolio
+                                and really start attracting the attention of hiring managers and
+                                potential customers. By putting your designer portfolio online, you
+                                can show off all sorts of work beyond print—including video,
+                                multimedia, and more. It’s also a good way to let your personality
+                                shine through and share your photography, modeling shots, or graphic
+                                design work in a more personal way.
                             </p>
-                            <p class="text-body mb-2">Learn more about these technologies:</p>
-                            <ul class="text-body list-disc ps-5">
-                                <li>
-                                    <a
-                                        href="https://flowbite.com/pro/"
-                                        class="text-fg-brand hover:underline"
-                                        >Flowbite Pro</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        href="https://tailwindui.com/"
-                                        rel="nofollow"
-                                        class="text-fg-brand hover:underline"
-                                        >Tailwind UI</a
-                                    >
-                                </li>
-                            </ul>
+                        </div>
+                    </div>
+                    <h2 id="accordion-open-heading-5">
+                        <button
+                            type="button"
+                            class="flex w-full items-center justify-between gap-3 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
+                            data-accordion-target="#accordion-open-body-5"
+                            aria-expanded="false"
+                            aria-controls="accordion-open-body-5"
+                        >
+                            <span class="flex items-center">
+                                How do I choose the right design for my portfolio website?
+                            </span>
+                            <svg
+                                data-accordion-icon
+                                class="h-6 w-6 shrink-0"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke="currentColor"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="m5 15 7-7 7 7"
+                                />
+                            </svg>
+                        </button>
+                    </h2>
+                    <div
+                        id="accordion-open-body-5"
+                        class="hidden"
+                        aria-labelledby="accordion-open-heading-5"
+                    >
+                        <div class="px-5 py-5 md:px-12">
+                            <p class="mb-2 text-[16px] text-gray-700">
+                                The best portfolio website designs and templates are clean, modern,
+                                and show off your work without distractions. When you sign up for
+                                Jimdo, you’ll be able to pick a style that fits you, and then the
+                                design of the website is taken care of! Once you create your online
+                                portfolio, you can tweak it and customize it as you like, but all
+                                the heavy lifting is done for you. So you can spend more time on
+                                your actual work, and less time laboring over your website.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="h-auto py-30 text-center">
-            <h2 class="mb-6 text-[48px]">Show off your hard work</h2>
-            <p class="mb-6 text-[20px]">A portfolio creator for every profession</p>
-            <div class="flex items-center justify-between gap-5 py-10">
-                <div>
-                    <h3 class="text-[20px]">Freelancer</h3>
-                    <p class="mb-6">
-                        Every freelancer needs a website to attract new <br />
-                        customers, find work, and show off your skills. Build your own portfolio,
-                        with no coding required!
-                    </p>
-                    <a href="" class="text-[20px]"><span>Freelance website how-to </span></a>
-                </div>
-                <div>
-                    <h3 class="text-[20px]">Photography</h3>
-                    <p class="mb-6">
-                        Photographers love Jimdo for its beautiful and easy <br />portfolio
-                        websites. See how you can get your photos online quickly and start taking
-                        bookings.
-                    </p>
-                    <a href="" class="text-[20px]">Photography website how-to</a>
-                </div>
-                <div>
-                    <h3 class="text-[20px]">Design</h3>
-                    <p class="mb-6">
-                        Create an art portfolio that matches your style. Our built- <br />
-                        in tools will help you improve your search engine ranking and even sell your
-                        artwork online.
-                    </p>
-                    <a href="" class="text-[20px]">How to design a website</a>
+        <section class="section-medium h-auto bg-[#f8f8f8] text-center">
+            <div class="container">
+                <h2 class="pb-6 text-[48px]">Show off your hard work</h2>
+                <p class="pb-6 text-[20px]">A portfolio creator for every profession</p>
+                <div class="flex items-center justify-between gap-5 py-10">
+                    <div>
+                        <h3 class="text-[20px]">Freelancer</h3>
+                        <p class="pb-6">
+                            Every freelancer needs a website to attract new <br />
+                            customers, find work, and show off your skills. Build your own
+                            portfolio, with no coding required!
+                        </p>
+                        <a href="" class="text-[20px]"><span>Freelance website how-to </span></a>
+                    </div>
+                    <div>
+                        <h3 class="text-[20px]">Photography</h3>
+                        <p class="pb-6">
+                            Photographers love Jimdo for its beautiful and easy <br />portfolio
+                            websites. See how you can get your photos online quickly and start
+                            taking bookings.
+                        </p>
+                        <a href="" class="text-[20px]">Photography website how-to</a>
+                    </div>
+                    <div>
+                        <h3 class="text-[20px]">Design</h3>
+                        <p class="pb-6">
+                            Create an art portfolio that matches your style. Our built- <br />
+                            in tools will help you improve your search engine ranking and even sell
+                            your artwork online.
+                        </p>
+                        <a href="" class="text-[20px]">How to design a website</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <footer></footer>
+        <footer class="[&_a]:text-brand flex flex-col gap-20 p-10 [&_h3]:text-[#6d6d6d]">
+            <div class="flex gap-10">
+                <div>
+                    <div>
+                        <img
+                            src="./src/assets/images/7ed1b2a4-7810-4fd1-bd97-64a10f193402.png"
+                            alt="jimdo logo"
+                            class="h-11 w-29.5 md:mb-10"
+                        />
+                    </div>
+                    <ul class="flex">
+                        <li>
+                            <a href="" class="p-3 text-[28px]"
+                                ><i class="fa-brands fa-facebook"></i
+                            ></a>
+                        </li>
+                        <li>
+                            <a href="" class="p-3 text-[28px]"
+                                ><i class="fa-brands fa-instagram"></i
+                            ></a>
+                        </li>
+                        <li>
+                            <a href="" class="p-3 text-[28px]"
+                                ><i class="fa-brands fa-tiktok"></i
+                            ></a>
+                        </li>
+                        <li>
+                            <a href="" class="p-3 text-[28px]"
+                                ><i class="fa-brands fa-youtube"></i
+                            ></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex w-full justify-evenly">
+                    <div>
+                        <h3>Products</h3>
+                        <ul>
+                            <li><a href="#">Website</a></li>
+                            <li><a href="#">Online Store</a></li>
+                            <li><a href="#">Domain</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>About us</h3>
+                        <ul>
+                            <li><a href="#">About Jimdo</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Jimdo-ifo Index</a></li>
+                            <li><a href="#">Affiliates</a></li>
+                            <li><a href="#">Partnership</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Resource</h3>
+                        <ul>
+                            <li><a href="#">Jimdo Blog</a></li>
+                            <li><a href="#">JIMDOConnect</a></li>
+                            <li><a href="#">Founder Stories</a></li>
+                            <li><a href="#">Inspiration</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-between">
+                <div>
+                    <ul class="flex justify-around gap-10">
+                        <li><a href="#">Legal notice</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Settings</a></li>
+                    </ul>
+                </div>
+                <!-- Language Selector -->
+                <div class="relative" id="lang-selector">
+                    <button
+                        id="lang-btn"
+                        type="button"
+                        role="combobox"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                        aria-label="Switch language"
+                        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    >
+                        <!-- UK Flag -->
+                        <span class="flex items-center gap-1.5">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 60 30"
+                                class="rounded-xxs h-4 w-7"
+                                aria-hidden="true"
+                            >
+                                <clipPath id="t">
+                                    <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+                                </clipPath>
+                                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                                <path
+                                    d="M0,0 L60,30 M60,0 L0,30"
+                                    clip-path="url(#t)"
+                                    stroke="#C8102E"
+                                    stroke-width="4"
+                                />
+                                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+                            </svg>
+                            <span id="lang-label">English</span>
+                        </span>
+                        <svg
+                            class="h-4 w-4 text-gray-500 transition-transform duration-200"
+                            id="lang-chevron"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                            />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown listbox -->
+                    <ul
+                        id="lang-listbox"
+                        role="listbox"
+                        aria-label="Select language"
+                        class="absolute right-0 bottom-full mb-1 hidden min-w-[160px] rounded-md border border-gray-200 bg-white py-1 shadow-lg"
+                    >
+                        <li
+                            role="option"
+                            aria-selected="true"
+                            data-lang="English"
+                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 60 30"
+                                class="h-4 w-7 rounded-[2px]"
+                                aria-hidden="true"
+                            >
+                                <clipPath id="t2">
+                                    <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+                                </clipPath>
+                                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                                <path
+                                    d="M0,0 L60,30 M60,0 L0,30"
+                                    clip-path="url(#t2)"
+                                    stroke="#C8102E"
+                                    stroke-width="4"
+                                />
+                                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+                            </svg>
+                            English
+                        </li>
+                        <li
+                            role="option"
+                            aria-selected="false"
+                            data-lang="Deutsch"
+                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                        >
+                            <span class="text-base leading-none">🇩🇪</span> Deutsch
+                        </li>
+                        <li
+                            role="option"
+                            aria-selected="false"
+                            data-lang="Français"
+                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                        >
+                            <span class="text-base leading-none">🇫🇷</span> Français
+                        </li>
+                        <li
+                            role="option"
+                            aria-selected="false"
+                            data-lang="Español"
+                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                        >
+                            <span class="text-base leading-none">🇪🇸</span> Español
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
 
         <script type="module" src="/src/main.ts"></script>
         <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
@@ -1128,6 +1477,42 @@
                     }
                 })
 
+                // Language selector
+                const langBtn = document.getElementById('lang-btn')
+                const langListbox = document.getElementById('lang-listbox')
+                const langChevron = document.getElementById('lang-chevron')
+                const langLabel = document.getElementById('lang-label')
+
+                if (langBtn && langListbox) {
+                    langBtn.addEventListener('click', (e) => {
+                        e.stopPropagation()
+                        const isOpen = !langListbox.classList.contains('hidden')
+                        langListbox.classList.toggle('hidden', isOpen)
+                        langBtn.setAttribute('aria-expanded', String(!isOpen))
+                        langChevron.style.transform = isOpen ? '' : 'rotate(180deg)'
+                    })
+
+                    document.querySelectorAll('.lang-option').forEach((option) => {
+                        option.addEventListener('click', () => {
+                            const selected = option.getAttribute('data-lang')
+                            langLabel.textContent = selected
+                            document
+                                .querySelectorAll('.lang-option')
+                                .forEach((o) => o.setAttribute('aria-selected', 'false'))
+                            option.setAttribute('aria-selected', 'true')
+                            langListbox.classList.add('hidden')
+                            langBtn.setAttribute('aria-expanded', 'false')
+                            langChevron.style.transform = ''
+                        })
+                    })
+
+                    document.addEventListener('click', () => {
+                        langListbox.classList.add('hidden')
+                        langBtn.setAttribute('aria-expanded', 'false')
+                        langChevron.style.transform = ''
+                    })
+                }
+
                 // Mobile accordion
                 document.querySelectorAll('.mobile-accordion').forEach((item) => {
                     const trigger = item.querySelector('.mobile-acc-trigger')
@@ -1153,12 +1538,14 @@
                 const portfolioCarousel = document.getElementById('portfolio-carousel')
                 if (portfolioCarousel) {
                     const track = document.getElementById('portfolio-track')
+                    const viewport = portfolioCarousel.querySelector('.portfolio-viewport')
                     const prevBtn = document.getElementById('portfolio-prev')
                     const nextBtn = document.getElementById('portfolio-next')
                     const dotsContainer = document.getElementById('portfolio-dots')
                     const slides = Array.from(track.children)
                     const totalSlides = slides.length
                     let index = 0
+                    const wrapIndex = (value) => (value + totalSlides) % totalSlides
 
                     const createDots = (count) => {
                         dotsContainer.innerHTML = ''
@@ -1180,20 +1567,38 @@
                     const updateCarousel = () => {
                         if (!slides.length) return
 
-                        const containerWidth = portfolioCarousel.clientWidth
-                        const activeSlide = slides[index]
-                        const gap =
-                            parseFloat(window.getComputedStyle(track).columnGap || '0') ||
-                            parseFloat(window.getComputedStyle(track).gap || '0') ||
-                            0
-                        const slideWidth = activeSlide.getBoundingClientRect().width
-                        const slideStep = slideWidth + gap
-                        const centerOffset = (containerWidth - slideWidth) / 2
-                        const shift = index * slideStep - centerOffset
-                        track.style.transform = `translateX(-${shift}px)`
+                        slides.forEach((slide) => {
+                            slide.classList.remove('is-visible', 'is-side', 'is-active')
+                            slide.style.gridColumn = ''
+                        })
+
+                        if (totalSlides === 1) {
+                            slides[index].classList.add('is-visible', 'is-active')
+                            slides[index].style.gridColumn = '2'
+                        } else if (totalSlides === 2) {
+                            const otherIndex = wrapIndex(index + 1)
+                            slides[otherIndex].classList.add('is-visible', 'is-side')
+                            slides[otherIndex].style.gridColumn = '1'
+                            slides[index].classList.add('is-visible', 'is-active')
+                            slides[index].style.gridColumn = '2'
+                        } else {
+                            const prevIndex = wrapIndex(index - 1)
+                            const nextIndex = wrapIndex(index + 1)
+
+                            slides[prevIndex].classList.add('is-visible', 'is-side')
+                            slides[prevIndex].style.gridColumn = '1'
+
+                            slides[index].classList.add('is-visible', 'is-active')
+                            slides[index].style.gridColumn = '2'
+
+                            slides[nextIndex].classList.add('is-visible', 'is-side')
+                            slides[nextIndex].style.gridColumn = '3'
+                        }
 
                         slides.forEach((slide, slideIndex) => {
-                            slide.classList.toggle('is-active', slideIndex === index)
+                            if (slideIndex !== index && slide.classList.contains('is-visible')) {
+                                slide.classList.add('is-side')
+                            }
                         })
 
                         Array.from(dotsContainer.children).forEach((dot, dotIndex) => {
@@ -1202,7 +1607,7 @@
                     }
 
                     prevBtn.addEventListener('click', () => {
-                        index = (index - 1 + totalSlides) % totalSlides
+                        index = wrapIndex(index - 1)
                         updateCarousel()
                     })
 

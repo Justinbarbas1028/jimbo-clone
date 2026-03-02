@@ -1,173 +1,5 @@
-.portfolio-carousel {
-    margin-left: calc(50% - 50vw);
-    width: 100vw;
-    overflow: visible;
-    position: relative;
-}
-.portfolio-track {
-    display: flex;
-    align-items: center;
-    gap: 140px;
-    padding-left: 16vw;
-    padding-right: 16vw;
-    transition: transform 0.55s cubic-bezier(0.22, 0.8, 0.38, 1);
-    will-change: transform;
-}
-.portfolio-slide-item {
-    width: 480px;
-    max-width: 90vw;
-    flex-shrink: 0;
-    opacity: 0.48;
-    transform: translateY(0) scale(0.92);
-    transition:
-        transform 0.45s cubic-bezier(0.22, 0.8, 0.38, 1),
-        opacity 0.45s cubic-bezier(0.22, 0.8, 0.38, 1),
-        filter 0.45s;
-    filter: brightness(0.85) saturate(0.9);
-    z-index: 1;
-}
-.portfolio-slide-item.is-active {
-    opacity: 1;
-    transform: translateY(-18px) scale(1.08);
-    z-index: 3;
-    filter: brightness(1) saturate(1);
-    box-shadow: 0 40px 60px rgba(0, 20, 83, 0.18);
-}
-.portfolio-slide-item img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    border-radius: 18px;
-    background: #fff;
-    box-shadow: 0 24px 40px rgba(0, 20, 83, 0.12);
-}
-.portfolio-carousel .portfolio-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 32px;
-}
-.portfolio-carousel .portfolio-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #cbd5e1;
-    border: none;
-    transition: background 0.2s;
-}
-.portfolio-carousel .portfolio-dot.active {
-    background: var(--color-brand, #001453);
-}
-.portfolio-carousel .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(0, 20, 83, 0.08);
-    padding: 16px;
-    z-index: 10;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.portfolio-carousel .carousel-arrow.left {
-    left: 2vw;
-}
-.portfolio-carousel .carousel-arrow.right {
-    right: 2vw;
-}
-@media (max-width: 900px) {
-    .portfolio-slide-item {
-        width: 320px; /* No change here, just keeping context */
-    }
-    .portfolio-carousel .carousel-arrow {
-        padding: 10px;
-    }
-}
-
-/* small tweak: ensure dots centered under whole viewport */
-.portfolio-dots {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-@import 'tailwindcss';
-
-/* choose one of the following */
-
-/* Euclid Circular A — local font files */
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Light%20Italic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Italic.ttf') format('truetype');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Medium%20Italic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold%20Italic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Euclid Circular';
-    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Bold%20Italic.ttf') format('truetype');
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import 'tailwindcss';
 @import 'flowbite/src/themes/default';
 
 /* MINIMAL THEME
@@ -189,6 +21,87 @@
 @import "flowbite/src/themes/mono";
 */
 
+/* Euclid Circular A — local font files */
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Light%20Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Medium%20Italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20SemiBold%20Italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('/src/assets/fonts/Euclid%20Circular%20A%20Bold%20Italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
 @theme {
     --color-brand: #001453;
     --font-euclid:
@@ -204,182 +117,384 @@
 
 @layer components {
     .custom-blue {
-        background-color: #004ced;
+        @apply bg-[#004ced];
     }
 }
 
 el-dropdown svg {
-    transition: transform 0.2s ease;
+    @apply transition-transform duration-200 ease-in-out;
 }
 
 el-dropdown[open] svg {
-    transform: rotate(180deg);
+    @apply rotate-180;
 }
 
 .nav-link,
 .nav-trigger {
-    color: var(--color-brand);
-    display: inline-flex;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 1.2;
+    @apply text-brand inline-flex items-center text-base leading-[1.2] font-semibold;
 }
 
 .nav-trigger {
-    height: 100%;
-    position: relative;
-    padding: 12px;
+    @apply relative h-full p-3;
 }
 
 .nav-trigger::after {
-    background-color: transparent;
-    bottom: -0.25rem;
+    @apply absolute right-0 -bottom-1 left-0 h-[0.1875rem] bg-transparent transition-colors duration-200;
     content: '';
-    height: 0.1875rem;
-    left: 0;
-    position: absolute;
-    right: 0;
-    transition: background-color 0.2s ease;
 }
 
 .nav-trigger[data-open='true'] {
-    color: #2563eb;
+    @apply text-blue-600;
 }
 
 .nav-trigger[data-open='true']::after {
-    background-color: #2563eb;
+    @apply bg-blue-600;
 }
 
 .nav-chevron {
-    transition: transform 0.2s ease;
+    @apply transition-transform duration-200 ease-in-out;
 }
 
 .nav-trigger[data-open='true'] .nav-chevron {
-    transform: rotate(180deg);
+    @apply rotate-180;
 }
 
 .mega-menu {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
+    @apply text-brand mt-3 border border-gray-200 bg-white;
     box-shadow: 0 12px 24px rgba(0, 20, 83, 0.1);
-    color: var(--color-brand);
-    margin-top: 0.75rem;
 }
 
 .website-grid {
-    grid-template-columns: 1fr 1.12fr 1fr;
+    @apply grid-cols-[1fr_1.12fr_1fr];
 }
 
 .online-store-grid {
-    grid-template-columns: 1fr 1fr;
+    @apply grid-cols-2;
 }
 
 .mega-col {
-    padding: 2.5rem 2.5rem 3.7rem 2.5rem;
+    @apply px-10 pt-10 pb-[3.7rem];
 }
 
 .mega-col-muted {
-    background-color: #f8f8f8;
-    height: 100%;
+    @apply h-full bg-[#f8f8f8];
 }
 
 .mega-heading {
-    color: #4b5563;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    margin-bottom: 1.25rem;
+    @apply mb-5 text-xs font-bold tracking-[0.02em] text-gray-600;
 }
 
 .mega-link {
-    color: var(--color-brand);
-    display: block;
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-top: 1.5rem;
+    @apply text-brand mt-6 block text-base leading-[1.2] font-bold;
 }
 
 .mega-sub {
-    color: var(--color-brand);
-    display: block;
-    font-size: 0.875rem;
-    line-height: 1.25;
-    margin-top: 0.25rem;
-    white-space: nowrap;
+    @apply text-brand mt-1 block text-sm leading-5 whitespace-nowrap;
 }
 
-/* Mobile menu */
 .mobile-acc-trigger {
-    color: var(--color-brand);
-    cursor: pointer;
-    background: none;
-    gap: 0.5rem;
+    @apply text-brand cursor-pointer gap-2 bg-transparent;
 }
 
 .mobile-acc-trigger:hover {
-    background-color: #f3f4f6;
+    @apply bg-gray-100;
 }
 
 .mobile-acc-heading {
-    color: #4b5563;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    @apply mb-2 text-xs font-bold tracking-[0.05em] text-gray-600 uppercase;
 }
 
 .mobile-acc-link {
-    color: var(--color-brand);
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 0.4rem 0;
+    @apply text-brand block py-[0.4rem] text-[0.95rem] font-semibold;
 }
 
 .mobile-acc-link:hover {
-    text-decoration: underline;
+    @apply underline;
 }
 
 .hamburger-line {
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+    @apply transition-all duration-300 ease-in-out;
 }
 
 .portfolio-carousel {
+    @apply relative w-screen overflow-visible;
     margin-left: calc(50% - 50vw);
 }
 
 .portfolio-track {
-    padding-left: 12vw;
-    padding-right: 12vw;
+    @apply flex items-center gap-[140px] px-[12vw];
+    transition: transform 0.55s cubic-bezier(0.22, 0.8, 0.38, 1);
+    will-change: transform;
 }
 
 .portfolio-slide-item {
+    @apply max-w-[90vw] shrink-0;
     width: min(64vw, 640px);
-    transform: scale(0.9);
     opacity: 0.55;
+    transform: scale(0.9);
     transition:
         transform 0.45s ease,
         opacity 0.45s ease;
+    filter: brightness(0.85) saturate(0.9);
+    z-index: 1;
 }
 
 .portfolio-slide-item.is-active {
-    transform: scale(1.03);
     opacity: 1;
+    transform: scale(1.03);
+    z-index: 3;
+    filter: brightness(1) saturate(1);
+    box-shadow: 0 40px 60px rgba(0, 20, 83, 0.18);
 }
 
 .portfolio-slide-item img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
+    @apply aspect-[16/10] w-full rounded-[18px] bg-white;
     box-shadow: 0 24px 40px rgba(0, 20, 83, 0.18);
+}
+
+.portfolio-carousel .portfolio-dots {
+    @apply mt-8 flex justify-center gap-3;
+}
+
+.portfolio-carousel .portfolio-dot {
+    @apply size-3 rounded-full border-0 bg-slate-300 transition-colors duration-200;
+}
+
+.portfolio-carousel .portfolio-dot.active {
+    @apply bg-brand;
+}
+
+.portfolio-carousel .carousel-arrow {
+    @apply absolute top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full border border-gray-200 bg-white p-4 transition-colors duration-200;
+    box-shadow: 0 4px 16px rgba(0, 20, 83, 0.08);
+}
+
+.portfolio-carousel .carousel-arrow.left {
+    @apply left-[2vw];
+}
+
+.portfolio-carousel .carousel-arrow.right {
+    @apply right-[2vw];
+}
+
+.portfolio-dots {
+    @apply flex w-full justify-center;
+}
+
+@media (max-width: 900px) {
+    .portfolio-slide-item {
+        @apply w-80;
+    }
+
+    .portfolio-carousel .carousel-arrow {
+        @apply p-2.5;
+    }
 }
 
 @media (min-width: 1024px) {
     .portfolio-slide-item {
         width: min(52vw, 820px);
+    }
+}
+
+/* =========================
+   GLOBAL CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container-wide {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 1400px;
+}
+
+/* =========================
+   SECTION SPACING
+========================= */
+
+.section {
+    padding: 60px 20px;
+}
+
+.section-small {
+    padding: 40px 20px;
+}
+
+.section-medium {
+    padding: 60px 20px;
+}
+
+.section-large {
+    padding: 80px 20px;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 80px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .section {
+        padding: 100px 0;
+    }
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.column {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .column-2 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .column-3 {
+        width: 33.333%;
+    }
+
+    .column-4 {
+        width: 25%;
+    }
+}
+
+/* =========================
+   UTILITY PADDING CLASSES
+========================= */
+
+.no-padding {
+    padding: 0;
+}
+
+.add-5 {
+    padding: 5px;
+}
+
+.add-10 {
+    padding: 10px;
+}
+
+.add-15 {
+    padding: 15px;
+}
+
+.add-20 {
+    padding: 20px;
+}
+
+.add-30 {
+    padding: 30px;
+}
+
+.add-40 {
+    padding: 40px;
+}
+
+.add-50 {
+    padding: 50px;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pt-30 {
+    padding-top: 30px;
+}
+
+.pt-50 {
+    padding-top: 50px;
+}
+
+.pb-10 {
+    padding-bottom: 10px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.pb-30 {
+    padding-bottom: 30px;
+}
+
+.pb-50 {
+    padding-bottom: 50px;
+}
+
+.pl-10 {
+    padding-left: 10px;
+}
+
+.pl-20 {
+    padding-left: 20px;
+}
+
+.pr-10 {
+    padding-right: 10px;
+}
+
+.pr-20 {
+    padding-right: 20px;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+========================= */
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
     }
 }
