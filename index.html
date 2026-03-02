@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="/src/styles/main.css" />
         <title>my-project</title>
     </head>
-    <body class="font-euclid">
+    <body class="font-euclid bg-[#f8f8f8]">
         <nav class="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
             <div class="container flex h-16 items-center justify-between lg:h-22.5">
                 <div class="text-brand w-26 text-lg font-semibold">
@@ -551,8 +551,8 @@
                 <img src="/src/assets/images/feature-3.png" alt="" srcset="" />
             </div>
         </section>
-        <section class="section-medium container h-auto">
-            <div class="flex items-center justify-evenly py-15">
+        <section class="section-medium h-auto bg-white">
+            <div class="container flex items-center justify-evenly py-15">
                 <div class="flex max-w-152.5 flex-col items-center pb-10">
                     <h2 class="mb-10 text-center text-[48px]">How to make an online portfolio</h2>
                     <p class="mb-10 text-center">
@@ -720,7 +720,7 @@
                 </div>
             </div>
         </section>
-        <section class="section-medium bg-gray-50 pb-20">
+        <section class="section-medium bg-[#f8f8f8] pb-20">
             <div class="container">
                 <h2 class="text-center text-[48px]">
                     Get portfolio design inspiration with these examples
@@ -1118,9 +1118,8 @@
             </div>
         </section>
 
-        <footer
-            class="[&_a]:text-brand container flex h-[460px] flex-col gap-20 p-10 [&_h3]:text-[#6d6d6d]"
-        >
+        <footer class="bg-white">
+            <div class="[&_a]:text-brand container flex h-[460px] flex-col gap-20 p-10 [&_h3]:text-[#6d6d6d]">
             <div class="flex gap-10">
                 <div>
                     <div>
@@ -1308,6 +1307,7 @@
                     </ul>
                 </div>
             </div>
+            </div>
         </footer>
 
         <script type="module" src="/src/main.ts"></script>
@@ -1418,35 +1418,37 @@
                     const activeItemIndex = 1
                     const visibleWindow = 3
                     let itemWidth = 0
+                    let baseTrackOffset = 0
                     let trackOffset = 0
                     let isAnimating = false
-                    const trackTransition = 'transform 720ms cubic-bezier(0.22, 0.61, 0.36, 1)'
+                    const trackTransition = 'transform 800ms cubic-bezier(0.25, 0.1, 0.25, 1)'
+                    const slideTransition = 'transform 800ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 800ms cubic-bezier(0.25, 0.1, 0.25, 1)'
 
                     const centerWindowIndex = Math.floor(visibleWindow / 2)
                     const totalItems = track.children.length
                     const getSlides = () => Array.from(track.querySelectorAll('.portfolio-slide-item'))
+                    const toPx = (value) => `${value.toFixed(3)}px`
 
-                    const updateScaling = (centerIndex = activeItemIndex) => {
+                    const updateScaling = (centerIndex = activeItemIndex, animate = true) => {
                         const slides = getSlides()
                         slides.forEach((slide, index) => {
-                            slide.classList.add('transform', 'transition-all', 'duration-500')
+                            slide.classList.add('transform')
+                            if (animate) {
+                                slide.style.transition = slideTransition
+                            } else {
+                                slide.style.transition = 'none'
+                            }
                             slide.classList.remove(
                                 'scale-100',
                                 'scale-80',
                                 'opacity-100',
                                 'opacity-60',
                                 'z-30',
-                                'z-10',
-                                'duration-300'
+                                'z-10'
                             )
 
                             if (index === centerIndex) {
                                 slide.classList.add('scale-100', 'opacity-100', 'z-30')
-                            } else if (
-                                index === centerIndex - 1 ||
-                                index === centerIndex + 1
-                            ) {
-                                slide.classList.add('scale-80', 'opacity-60', 'z-10')
                             } else {
                                 slide.classList.add('scale-80', 'opacity-60', 'z-10')
                             }
@@ -1459,13 +1461,16 @@
 
                         const trackStyles = window.getComputedStyle(track)
                         const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || '0')
-                        itemWidth = slides[0].getBoundingClientRect().width + gap
+                        itemWidth =
+                            Math.round((slides[0].getBoundingClientRect().width + gap) * 1000) /
+                            1000
 
-                        trackOffset = -(activeItemIndex - centerWindowIndex) * itemWidth
+                        baseTrackOffset = -(activeItemIndex - centerWindowIndex) * itemWidth
+                        trackOffset = baseTrackOffset
                         track.style.transition = 'none'
-                        track.style.transform = `translateX(${trackOffset}px)`
+                        track.style.transform = `translateX(${toPx(trackOffset)})`
 
-                        updateScaling(activeItemIndex)
+                        updateScaling(activeItemIndex, false)
 
                         requestAnimationFrame(() => {
                             track.style.transition = trackTransition
@@ -1476,10 +1481,10 @@
                         if (isAnimating || totalItems < 2 || itemWidth === 0) return
                         isAnimating = true
 
-                        trackOffset -= itemWidth
+                        trackOffset = baseTrackOffset - itemWidth
                         updateScaling(activeItemIndex + 1)
                         track.style.transition = trackTransition
-                        track.style.transform = `translateX(${trackOffset}px)`
+                        track.style.transform = `translateX(${toPx(trackOffset)})`
 
                         const handleNextEnd = (event) => {
                             if (event.target !== track || event.propertyName !== 'transform') return
@@ -1493,14 +1498,16 @@
                             }
 
                             track.style.transition = 'none'
-                            trackOffset += itemWidth
-                            track.style.transform = `translateX(${trackOffset}px)`
+                            trackOffset = baseTrackOffset
+                            track.style.transform = `translateX(${toPx(trackOffset)})`
 
-                            updateScaling(activeItemIndex)
+                            updateScaling(activeItemIndex, false)
 
                             requestAnimationFrame(() => {
-                                track.style.transition = trackTransition
-                                isAnimating = false
+                                requestAnimationFrame(() => {
+                                    track.style.transition = trackTransition
+                                    isAnimating = false
+                                })
                             })
                         }
 
@@ -1517,23 +1524,23 @@
                         const lastClone = lastSlide.cloneNode(true)
                         track.insertBefore(lastClone, track.firstElementChild)
 
-                        trackOffset -= itemWidth
+                        trackOffset = baseTrackOffset - itemWidth
                         track.style.transition = 'none'
-                        track.style.transform = `translateX(${trackOffset}px)`
+                        track.style.transform = `translateX(${toPx(trackOffset)})`
                         lastSlide.remove()
 
                         void track.offsetHeight
                         updateScaling(activeItemIndex + 1)
 
                         track.style.transition = trackTransition
-                        trackOffset += itemWidth
-                        track.style.transform = `translateX(${trackOffset}px)`
+                        trackOffset = baseTrackOffset
+                        track.style.transform = `translateX(${toPx(trackOffset)})`
 
                         const handlePrevEnd = (event) => {
                             if (event.target !== track || event.propertyName !== 'transform') return
                             track.removeEventListener('transitionend', handlePrevEnd)
 
-                            updateScaling(activeItemIndex)
+                            updateScaling(activeItemIndex, false)
                             isAnimating = false
                         }
 
