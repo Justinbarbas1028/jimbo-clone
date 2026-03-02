@@ -217,83 +217,57 @@ el-dropdown[open] svg {
 }
 
 .portfolio-carousel {
-    @apply relative w-screen overflow-visible;
-    margin-left: calc(50% - 50vw);
+    --portfolio-gap: 1.25rem;
 }
 
 .portfolio-track {
-    @apply flex items-center gap-[140px] px-[12vw];
-    transition: transform 0.55s cubic-bezier(0.22, 0.8, 0.38, 1);
+    @apply flex items-center transition-transform duration-500 ease-in-out;
+    gap: var(--portfolio-gap);
+    transform: translateX(0);
     will-change: transform;
 }
 
 .portfolio-slide-item {
-    @apply max-w-[90vw] shrink-0;
-    width: min(64vw, 640px);
-    opacity: 0.55;
-    transform: scale(0.9);
-    transition:
-        transform 0.45s ease,
-        opacity 0.45s ease;
-    filter: brightness(0.85) saturate(0.9);
-    z-index: 1;
-}
-
-.portfolio-slide-item.is-active {
-    opacity: 1;
-    transform: scale(1.03);
-    z-index: 3;
-    filter: brightness(1) saturate(1);
-    box-shadow: 0 40px 60px rgba(0, 20, 83, 0.18);
+    @apply shrink-0;
+    flex: 0 0 calc((100% - (var(--portfolio-gap) * 2)) / 3);
+    transform-origin: center center;
 }
 
 .portfolio-slide-item img {
-    @apply aspect-[16/10] w-full rounded-[18px] bg-white;
-    box-shadow: 0 24px 40px rgba(0, 20, 83, 0.18);
+    @apply aspect-[16/10] w-full rounded-lg bg-white object-cover shadow-lg;
 }
 
-.portfolio-carousel .portfolio-dots {
-    @apply mt-8 flex justify-center gap-3;
+.portfolio-nav-btn {
+    @apply absolute top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-content-center rounded-full bg-white text-xl text-gray-800 shadow-md transition-colors duration-300;
 }
 
-.portfolio-carousel .portfolio-dot {
-    @apply size-3 rounded-full border-0 bg-slate-300 transition-colors duration-200;
+.portfolio-nav-btn:hover {
+    @apply bg-blue-600 text-white;
 }
 
-.portfolio-carousel .portfolio-dot.active {
-    @apply bg-brand;
+.portfolio-nav-btn.left {
+    left: 0;
+    transform: translate(-35%, -50%);
 }
 
-.portfolio-carousel .carousel-arrow {
-    @apply absolute top-1/2 z-10 -translate-y-1/2 cursor-pointer rounded-full border border-gray-200 bg-white p-4 transition-colors duration-200;
-    box-shadow: 0 4px 16px rgba(0, 20, 83, 0.08);
+.portfolio-nav-btn.right {
+    right: 0;
+    transform: translate(35%, -50%);
 }
 
-.portfolio-carousel .carousel-arrow.left {
-    @apply left-[2vw];
-}
-
-.portfolio-carousel .carousel-arrow.right {
-    @apply right-[2vw];
-}
-
-.portfolio-dots {
-    @apply flex w-full justify-center;
-}
-
-@media (max-width: 900px) {
-    .portfolio-slide-item {
-        @apply w-80;
-    }
-
-    .portfolio-carousel .carousel-arrow {
-        @apply p-2.5;
+@media (max-width: 1024px) {
+    .portfolio-carousel {
+        --portfolio-gap: 0.9rem;
     }
 }
 
-@media (min-width: 1024px) {
-    .portfolio-slide-item {
-        width: min(52vw, 820px);
+@media (max-width: 640px) {
+    .portfolio-carousel {
+        --portfolio-gap: 0.65rem;
+    }
+
+    .portfolio-nav-btn {
+        @apply h-10 w-10 text-base;
     }
 }
 

@@ -720,109 +720,105 @@
                 </div>
             </div>
         </section>
-        <section class="section-medium container pb-20">
-            <h2 class="text-center text-[48px]">
-                Get portfolio design inspiration with these examples
-            </h2>
-            <p class="pt-6 text-center text-[20px]">
-                Artists ♡ Jimdo! Spark your creativity with these website portfolio examples built
-                with Jimdo.
-            </p>
-            <div class="portfolio-carousel w-screen pt-12" id="portfolio-carousel">
-                <div class="relative w-full">
-                    <button
-                        id="portfolio-prev"
-                        type="button"
-                        class="carousel-arrow left"
-                        aria-label="Previous slide"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="size-5"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15.75 19.5 8.25 12l7.5-7.5"
-                            />
-                        </svg>
-                    </button>
+        <section class="section-medium bg-gray-50 pb-20">
+            <div class="container">
+                <h2 class="text-center text-[48px]">
+                    Get portfolio design inspiration with these examples
+                </h2>
+                <p class="pt-6 text-center text-[20px]">
+                    Artists love Jimdo! Spark your creativity with these website portfolio examples
+                    built with Jimdo.
+                </p>
+            </div>
 
-                    <div class="portfolio-viewport mx-auto w-full max-w-full py-8">
-                        <div id="portfolio-track" class="portfolio-track">
-                            <div class="portfolio-slide-item">
-                                <img
-                                    src="/src/assets/images/website-1.png"
-                                    alt="Example of a singer-songwriter portfolio website built with Jimdo"
-                                    class="w-full rounded-xl"
-                                />
-                            </div>
-                            <div class="portfolio-slide-item">
-                                <img
-                                    src="/src/assets/images/website-11.png"
-                                    alt="Example of a fine art portfolio website built with Jimdo"
-                                    class="w-full rounded-xl"
-                                />
-                            </div>
-                            <div class="portfolio-slide-item">
-                                <img
-                                    src="/src/assets/images/website-12.png"
-                                    alt="Example of a portfolio website built with Jimdo"
-                                    class="w-full rounded-xl"
-                                />
-                            </div>
-                            <div class="portfolio-slide-item">
-                                <img
-                                    src="/src/assets/images/dummy-website-4.png"
-                                    alt="Example of a creative portfolio built with Jimdo"
-                                    class="w-full rounded-xl"
-                                />
-                            </div>
-                            <div class="portfolio-slide-item">
-                                <img
-                                    src="/src/assets/images/website-13.png"
-                                    alt="Example of an artist portfolio website built with Jimdo"
-                                    class="w-full rounded-xl"
-                                />
-                            </div>
-                            <div class="portfolio-slide-item">
-                                <img
-                                    src="/src/assets/images/website-14.png"
-                                    alt="Example of a graphic design portfolio website built with Jimdo"
-                                    class="w-full rounded-xl"
-                                />
-                            </div>
-                        </div>
+            <div
+                class="portfolio-carousel relative mx-auto mt-12 w-full max-w-[1240px] px-4 sm:px-8"
+                id="portfolio-carousel"
+            >
+                <button
+                    id="portfolio-prev"
+                    type="button"
+                    class="portfolio-nav-btn left"
+                    aria-label="Previous portfolio image"
+                >
+                    <span aria-hidden="true">&#10094;</span>
+                </button>
+
+                <div class="portfolio-viewport overflow-hidden py-4">
+                    <div
+                        id="portfolio-track"
+                        class="portfolio-track transition-transform duration-500 ease-in-out"
+                    >
+                        <article
+                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            data-item-id="0"
+                        >
+                            <img
+                                src="/src/assets/images/website-1.png"
+                                alt="Tamira portfolio website"
+                            />
+                        </article>
+
+                        <article
+                            class="portfolio-slide-item transform transition-all duration-300 scale-100 opacity-100"
+                            data-item-id="1"
+                        >
+                            <img
+                                src="/src/assets/images/website-11.png"
+                                alt="Katja Kemnitz portfolio website"
+                            />
+                        </article>
+
+                        <article
+                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            data-item-id="2"
+                        >
+                            <img
+                                src="/src/assets/images/website-12.png"
+                                alt="Creative portfolio website"
+                            />
+                        </article>
+
+                        <article
+                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            data-item-id="3"
+                        >
+                            <img
+                                src="/src/assets/images/dummy-website-4.png"
+                                alt="Art portfolio website"
+                            />
+                        </article>
+
+                        <article
+                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            data-item-id="4"
+                        >
+                            <img
+                                src="/src/assets/images/website-13.png"
+                                alt="Designer portfolio website"
+                            />
+                        </article>
+
+                        <article
+                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            data-item-id="5"
+                        >
+                            <img
+                                src="/src/assets/images/website-14.png"
+                                alt="Graphic design portfolio website"
+                            />
+                        </article>
                     </div>
-
-                    <button
-                        id="portfolio-next"
-                        type="button"
-                        class="carousel-arrow right"
-                        aria-label="Next slide"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            class="size-5"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M8.25 4.5 15.75 12l-7.5 7.5"
-                            />
-                        </svg>
-                    </button>
                 </div>
 
-                <div id="portfolio-dots" class="portfolio-dots"></div>
+                <button
+                    id="portfolio-next"
+                    type="button"
+                    class="portfolio-nav-btn right"
+                    aria-label="Next portfolio image"
+                >
+                    <span aria-hidden="true">&#10095;</span>
+                </button>
             </div>
         </section>
 
@@ -1413,88 +1409,160 @@
                 const portfolioCarousel = document.getElementById('portfolio-carousel')
                 if (portfolioCarousel) {
                     const track = document.getElementById('portfolio-track')
-                    const viewport = portfolioCarousel.querySelector('.portfolio-viewport')
                     const prevBtn = document.getElementById('portfolio-prev')
                     const nextBtn = document.getElementById('portfolio-next')
-                    const dotsContainer = document.getElementById('portfolio-dots')
-                    const slides = Array.from(track.children)
-                    const totalSlides = slides.length
-                    let index = 0
-                    const wrapIndex = (value) => (value + totalSlides) % totalSlides
-
-                    const createDots = (count) => {
-                        dotsContainer.innerHTML = ''
-                        for (let i = 0; i < count; i += 1) {
-                            const dot = document.createElement('button')
-                            dot.type = 'button'
-                            dot.className = 'portfolio-dot'
-                            dot.setAttribute('aria-label', `Go to slide ${i + 1}`)
-                            dot.addEventListener('click', () => {
-                                index = i
-                                updateCarousel()
-                            })
-                            dotsContainer.appendChild(dot)
-                        }
+                    if (!track) {
+                        return
                     }
 
-                    createDots(totalSlides)
+                    const activeItemIndex = 1
+                    const visibleWindow = 3
+                    let itemWidth = 0
+                    let trackOffset = 0
+                    let isAnimating = false
 
-                    const updateCarousel = () => {
-                        if (!slides.length) return
+                    const centerWindowIndex = Math.floor(visibleWindow / 2)
+                    const totalItems = track.children.length
+                    const getSlides = () => Array.from(track.querySelectorAll('.portfolio-slide-item'))
 
-                        slides.forEach((slide) => {
-                            slide.classList.remove('is-visible', 'is-side', 'is-active')
-                            slide.style.gridColumn = ''
-                        })
+                    const updateScaling = (centerIndex = activeItemIndex) => {
+                        const slides = getSlides()
+                        slides.forEach((slide, index) => {
+                            slide.classList.add('transform', 'transition-all', 'duration-300')
+                            slide.classList.remove(
+                                'scale-100',
+                                'scale-80',
+                                'opacity-100',
+                                'opacity-60',
+                                'z-30',
+                                'z-10'
+                            )
 
-                        if (totalSlides === 1) {
-                            slides[index].classList.add('is-visible', 'is-active')
-                            slides[index].style.gridColumn = '2'
-                        } else if (totalSlides === 2) {
-                            const otherIndex = wrapIndex(index + 1)
-                            slides[otherIndex].classList.add('is-visible', 'is-side')
-                            slides[otherIndex].style.gridColumn = '1'
-                            slides[index].classList.add('is-visible', 'is-active')
-                            slides[index].style.gridColumn = '2'
-                        } else {
-                            const prevIndex = wrapIndex(index - 1)
-                            const nextIndex = wrapIndex(index + 1)
-
-                            slides[prevIndex].classList.add('is-visible', 'is-side')
-                            slides[prevIndex].style.gridColumn = '1'
-
-                            slides[index].classList.add('is-visible', 'is-active')
-                            slides[index].style.gridColumn = '2'
-
-                            slides[nextIndex].classList.add('is-visible', 'is-side')
-                            slides[nextIndex].style.gridColumn = '3'
-                        }
-
-                        slides.forEach((slide, slideIndex) => {
-                            if (slideIndex !== index && slide.classList.contains('is-visible')) {
-                                slide.classList.add('is-side')
+                            if (index === centerIndex) {
+                                slide.classList.add('scale-100', 'opacity-100', 'z-30')
+                            } else if (
+                                index === centerIndex - 1 ||
+                                index === centerIndex + 1
+                            ) {
+                                slide.classList.add('scale-80', 'opacity-60', 'z-10')
+                            } else {
+                                slide.classList.add('scale-80', 'opacity-60', 'z-10')
                             }
                         })
+                    }
 
-                        Array.from(dotsContainer.children).forEach((dot, dotIndex) => {
-                            dot.classList.toggle('active', dotIndex === index)
+                    const measureCarousel = () => {
+                        const slides = getSlides()
+                        if (!slides.length) return
+
+                        const trackStyles = window.getComputedStyle(track)
+                        const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || '0')
+                        itemWidth = slides[0].getBoundingClientRect().width + gap
+
+                        trackOffset = -(activeItemIndex - centerWindowIndex) * itemWidth
+                        track.style.transition = 'none'
+                        track.style.transform = `translateX(${trackOffset}px)`
+
+                        updateScaling(activeItemIndex)
+
+                        requestAnimationFrame(() => {
+                            track.style.transition = 'transform 500ms ease-in-out'
                         })
                     }
 
-                    prevBtn.addEventListener('click', () => {
-                        index = wrapIndex(index - 1)
-                        updateCarousel()
+                    const moveNext = () => {
+                        if (isAnimating || totalItems < 2 || itemWidth === 0) return
+                        isAnimating = true
+
+                        trackOffset -= itemWidth
+                        updateScaling(activeItemIndex + 1)
+                        track.style.transition = 'transform 500ms ease-in-out'
+                        track.style.transform = `translateX(${trackOffset}px)`
+
+                        const handleNextEnd = (event) => {
+                            if (event.target !== track || event.propertyName !== 'transform') return
+                            track.removeEventListener('transitionend', handleNextEnd)
+
+                            const firstSlide = track.firstElementChild
+                            if (firstSlide) {
+                                const firstClone = firstSlide.cloneNode(true)
+                                track.appendChild(firstClone)
+                                firstSlide.remove()
+                            }
+
+                            track.style.transition = 'none'
+                            trackOffset += itemWidth
+                            track.style.transform = `translateX(${trackOffset}px)`
+
+                            updateScaling(activeItemIndex)
+
+                            requestAnimationFrame(() => {
+                                track.style.transition = 'transform 500ms ease-in-out'
+                                isAnimating = false
+                            })
+                        }
+
+                        track.addEventListener('transitionend', handleNextEnd)
+                    }
+
+                    const movePrev = () => {
+                        if (isAnimating || totalItems < 2 || itemWidth === 0) return
+                        const lastSlide = track.lastElementChild
+                        if (!lastSlide) return
+
+                        isAnimating = true
+
+                        const lastClone = lastSlide.cloneNode(true)
+                        track.insertBefore(lastClone, track.firstElementChild)
+
+                        trackOffset -= itemWidth
+                        track.style.transition = 'none'
+                        track.style.transform = `translateX(${trackOffset}px)`
+                        lastSlide.remove()
+
+                        void track.offsetHeight
+                        updateScaling(activeItemIndex + 1)
+
+                        track.style.transition = 'transform 500ms ease-in-out'
+                        trackOffset += itemWidth
+                        track.style.transform = `translateX(${trackOffset}px)`
+
+                        const handlePrevEnd = (event) => {
+                            if (event.target !== track || event.propertyName !== 'transform') return
+                            track.removeEventListener('transitionend', handlePrevEnd)
+
+                            updateScaling(activeItemIndex)
+                            isAnimating = false
+                        }
+
+                        track.addEventListener('transitionend', handlePrevEnd)
+                    }
+
+                    prevBtn?.addEventListener('click', (event) => {
+                        event.preventDefault()
+                        movePrev()
                     })
 
-                    nextBtn.addEventListener('click', () => {
-                        index = (index + 1) % totalSlides
-                        updateCarousel()
+                    nextBtn?.addEventListener('click', (event) => {
+                        event.preventDefault()
+                        moveNext()
                     })
 
-                    window.addEventListener('resize', updateCarousel)
-                    updateCarousel()
+                    portfolioCarousel.addEventListener('contextmenu', (event) => {
+                        event.preventDefault()
+                        moveNext()
+                    })
+
+                    window.addEventListener('resize', () => {
+                        if (isAnimating) return
+                        measureCarousel()
+                    })
+
+                    measureCarousel()
                 }
             })
         </script>
     </body>
 </html>
+
+
