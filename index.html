@@ -517,7 +517,9 @@
             <div>
                 <h2 class="text-center text-[48px]">Portfolio site features that matter</h2>
             </div>
-            <div class="mx-auto flex h-auto w-full items-center justify-evenly gap-10 py-15">
+            <div
+                class="mx-auto flex h-auto w-full flex-col-reverse items-center justify-evenly gap-10 py-15 md:flex-row"
+            >
                 <div>
                     <h3 class="pb-6 text-[32px]">Beautiful visuals, by design</h3>
                     <p>
@@ -528,7 +530,9 @@
                 </div>
                 <img src="/src/assets/images/feature-1.png" alt="" srcset="" />
             </div>
-            <div class="mx-auto flex h-auto w-full items-center justify-evenly gap-10 py-15">
+            <div
+                class="mx-auto flex h-auto w-full flex-col items-center justify-evenly gap-10 py-15 md:flex-row"
+            >
                 <div class="order-2">
                     <h3 class="pb-6 text-[32px]">Help search engines find you</h3>
                     <p>
@@ -539,7 +543,9 @@
                 </div>
                 <img src="/src/assets/images/feature-2.png" alt="" srcset="" class="order-1" />
             </div>
-            <div class="mx-auto flex h-auto w-full items-center justify-evenly gap-10 py-15">
+            <div
+                class="mx-auto flex h-auto w-full flex-col-reverse items-center justify-evenly gap-10 py-15 md:flex-row"
+            >
                 <div>
                     <h3 class="pb-6 text-[32px]">Connect to social media in seconds</h3>
                     <p>
@@ -597,7 +603,11 @@
                         Start now
                     </button>
                 </div>
-                <img src="/src/assets/images/steplist-portfolio.png" alt="" class="w-120" />
+                <img
+                    src="/src/assets/images/steplist-portfolio.png"
+                    alt=""
+                    class="hidden w-120 lg:inline-block"
+                />
             </div>
         </section>
 
@@ -731,10 +741,7 @@
                 </p>
             </div>
 
-            <div
-                class="portfolio-carousel mt-12"
-                id="portfolio-carousel"
-            >
+            <div class="portfolio-carousel mt-12" id="portfolio-carousel">
                 <button
                     id="portfolio-prev"
                     type="button"
@@ -750,7 +757,7 @@
                         class="portfolio-track transition-transform duration-500 ease-in-out"
                     >
                         <article
-                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            class="portfolio-slide-item scale-80 transform opacity-60 transition-all duration-300"
                             data-item-id="0"
                         >
                             <img
@@ -760,7 +767,7 @@
                         </article>
 
                         <article
-                            class="portfolio-slide-item transform transition-all duration-300 scale-100 opacity-100"
+                            class="portfolio-slide-item scale-100 transform opacity-100 transition-all duration-300"
                             data-item-id="1"
                         >
                             <img
@@ -770,7 +777,7 @@
                         </article>
 
                         <article
-                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            class="portfolio-slide-item scale-80 transform opacity-60 transition-all duration-300"
                             data-item-id="2"
                         >
                             <img
@@ -780,7 +787,7 @@
                         </article>
 
                         <article
-                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            class="portfolio-slide-item scale-80 transform opacity-60 transition-all duration-300"
                             data-item-id="3"
                         >
                             <img
@@ -790,7 +797,7 @@
                         </article>
 
                         <article
-                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            class="portfolio-slide-item scale-80 transform opacity-60 transition-all duration-300"
                             data-item-id="4"
                         >
                             <img
@@ -800,7 +807,7 @@
                         </article>
 
                         <article
-                            class="portfolio-slide-item transform transition-all duration-300 scale-80 opacity-60"
+                            class="portfolio-slide-item scale-80 transform opacity-60 transition-all duration-300"
                             data-item-id="5"
                         >
                             <img
@@ -824,18 +831,14 @@
 
         <section class="section-large bg-gray-100">
             <div class="container">
-                <h2 class="pb-10 text-center text-[48px] font-medium md:pb-12">
+                <h2 class="pb-4 text-center text-[48px] font-medium md:pb-4">
                     Online portfolio FAQ
                 </h2>
-                <div
-                    id="accordion-open"
-                    data-accordion="collapse"
-                    class="overflow-hidden border border-gray-200 bg-white"
-                >
+                <div id="accordion-open" data-accordion="collapse" class="overflow-hidden bg-white">
                     <h2 id="accordion-open-heading-1">
                         <button
                             type="button"
-                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
+                            class="flex w-full items-center justify-between px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
                             data-accordion-target="#accordion-open-body-1"
                             aria-expanded="false"
                             aria-controls="accordion-open-body-1"
@@ -845,7 +848,7 @@
                             >
                             <svg
                                 data-accordion-icon
-                                class="h-6 w-6 shrink-0"
+                                class="h-6 w-6 shrink-0 rotate-180"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -883,7 +886,7 @@
                     <h2 id="accordion-open-heading-2">
                         <button
                             type="button"
-                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
+                            class="flex w-full items-center justify-between gap-3 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
                             data-accordion-target="#accordion-open-body-2"
                             aria-expanded="false"
                             aria-controls="accordion-open-body-2"
@@ -893,7 +896,7 @@
                             >
                             <svg
                                 data-accordion-icon
-                                class="h-6 w-6 shrink-0"
+                                class="h-6 w-6 shrink-0 rotate-180"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -934,7 +937,7 @@
                     <h2 id="accordion-open-heading-3">
                         <button
                             type="button"
-                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
+                            class="flex w-full items-center justify-between gap-3 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
                             data-accordion-target="#accordion-open-body-3"
                             aria-expanded="false"
                             aria-controls="accordion-open-body-3"
@@ -944,7 +947,7 @@
                             </span>
                             <svg
                                 data-accordion-icon
-                                class="h-6 w-6 shrink-0"
+                                class="h-6 w-6 shrink-0 rotate-180"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -985,7 +988,7 @@
                     <h2 id="accordion-open-heading-4">
                         <button
                             type="button"
-                            class="flex w-full items-center justify-between gap-3 border-b border-gray-200 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
+                            class="flex w-full items-center justify-between gap-3 px-5 py-6 text-left text-[16px] font-medium hover:bg-gray-50 md:px-12"
                             data-accordion-target="#accordion-open-body-4"
                             aria-expanded="false"
                             aria-controls="accordion-open-body-4"
@@ -995,7 +998,7 @@
                             </span>
                             <svg
                                 data-accordion-icon
-                                class="h-6 w-6 shrink-0"
+                                class="h-6 w-6 shrink-0 rotate-180"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -1044,7 +1047,7 @@
                             </span>
                             <svg
                                 data-accordion-icon
-                                class="h-6 w-6 shrink-0"
+                                class="h-6 w-6 shrink-0 rotate-180"
                                 aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -1086,227 +1089,407 @@
             <div class="container">
                 <h2 class="pb-6 text-[48px]">Show off your hard work</h2>
                 <p class="pb-6 text-[20px]">A portfolio creator for every profession</p>
-                <div class="flex items-center justify-between gap-5 py-10">
+                <div class="flex flex-col items-center justify-between gap-5 py-10 md:flex-row">
                     <div>
-                        <h3 class="text-[20px]">Freelancer</h3>
-                        <p class="pb-6">
+                        <h3 class="mb-6 text-[20px]">Freelancer</h3>
+                        <p class="max-w-112.5 pb-6">
                             Every freelancer needs a website to attract new <br />
                             customers, find work, and show off your skills. Build your own
                             portfolio, with no coding required!
                         </p>
-                        <a href="" class="text-[20px]"><span>Freelance website how-to </span></a>
+                        <a href="" class="inline-flex items-center gap-2 border-b pb-1 text-[18px]">
+                            <span>Freelance website how-to</span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                                />
+                            </svg>
+                        </a>
                     </div>
                     <div>
-                        <h3 class="text-[20px]">Photography</h3>
-                        <p class="pb-6">
+                        <h3 class="mb-6 text-[20px]">Photography</h3>
+                        <p class="max-w-112.5 pb-6">
                             Photographers love Jimdo for its beautiful and easy <br />portfolio
                             websites. See how you can get your photos online quickly and start
                             taking bookings.
                         </p>
-                        <a href="" class="text-[20px]">Photography website how-to</a>
+                        <a href="" class="inline-flex items-center gap-2 border-b pb-1 text-[18px]">
+                            <span>Photography website how-to</span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                                />
+                            </svg>
+                        </a>
                     </div>
                     <div>
-                        <h3 class="text-[20px]">Design</h3>
-                        <p class="pb-6">
+                        <h3 class="mb-6 text-[20px]">Design</h3>
+                        <p class="max-w-112.5 pb-6">
                             Create an art portfolio that matches your style. Our built- <br />
                             in tools will help you improve your search engine ranking and even sell
                             your artwork online.
                         </p>
-                        <a href="" class="text-[20px]">How to design a website</a>
+                        <a href="" class="inline-flex items-center gap-2 border-b pb-1 text-[18px]">
+                            <span>How to design a website</span>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                                />
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <footer class="bg-white">
-            <div class="[&_a]:text-brand container flex h-[460px] flex-col gap-20 p-10 [&_h3]:text-[#6d6d6d]">
-            <div class="flex gap-10">
-                <div>
+            <div class="[&_a]:text-brand container flex flex-col gap-20 p-10">
+                <div class="flex flex-col-reverse items-center justify-center gap-10 md:flex-row">
                     <div>
-                        <img
-                            src="./src/assets/images/7ed1b2a4-7810-4fd1-bd97-64a10f193402.png"
-                            alt="jimdo logo"
-                            class="h-11 w-29.5 md:mb-10"
-                        />
-                    </div>
-                    <ul class="flex">
-                        <li>
-                            <a href="" class="p-3 text-[28px]"
-                                ><i class="fa-brands fa-facebook"></i
-                            ></a>
-                        </li>
-                        <li>
-                            <a href="" class="p-3 text-[28px]"
-                                ><i class="fa-brands fa-instagram"></i
-                            ></a>
-                        </li>
-                        <li>
-                            <a href="" class="p-3 text-[28px]"
-                                ><i class="fa-brands fa-tiktok"></i
-                            ></a>
-                        </li>
-                        <li>
-                            <a href="" class="p-3 text-[28px]"
-                                ><i class="fa-brands fa-youtube"></i
-                            ></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex w-full justify-evenly">
-                    <div>
-                        <h3>Products</h3>
-                        <ul>
-                            <li><a href="#">Website</a></li>
-                            <li><a href="#">Online Store</a></li>
-                            <li><a href="#">Domain</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>About us</h3>
-                        <ul>
-                            <li><a href="#">About Jimdo</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Jimdo-ifo Index</a></li>
-                            <li><a href="#">Affiliates</a></li>
-                            <li><a href="#">Partnership</a></li>
-                            <li><a href="#">Sitemap</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Resource</h3>
-                        <ul>
-                            <li><a href="#">Jimdo Blog</a></li>
-                            <li><a href="#">JIMDOConnect</a></li>
-                            <li><a href="#">Founder Stories</a></li>
-                            <li><a href="#">Inspiration</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-between">
-                <div>
-                    <ul class="flex justify-around gap-10">
-                        <li><a href="#">Legal notice</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Settings</a></li>
-                    </ul>
-                </div>
-                <!-- Language Selector -->
-                <div class="relative" id="lang-selector">
-                    <button
-                        id="lang-btn"
-                        type="button"
-                        role="combobox"
-                        aria-haspopup="listbox"
-                        aria-expanded="false"
-                        aria-label="Switch language"
-                        class="flex items-center gap-2 rounded-md border border-gray-300 bg-white px-3 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    >
-                        <!-- UK Flag -->
-                        <span class="flex items-center gap-1.5">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 60 30"
-                                class="rounded-xxs h-4 w-7"
-                                aria-hidden="true"
-                            >
-                                <clipPath id="t">
-                                    <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
-                                </clipPath>
-                                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
-                                <path
-                                    d="M0,0 L60,30 M60,0 L0,30"
-                                    clip-path="url(#t)"
-                                    stroke="#C8102E"
-                                    stroke-width="4"
-                                />
-                                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
-                                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
-                            </svg>
-                            <span id="lang-label">English</span>
-                        </span>
-                        <svg
-                            class="h-4 w-4 text-gray-500 transition-transform duration-200"
-                            id="lang-chevron"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
+                        <div
+                            class="flex items-center justify-center md:items-baseline md:justify-self-start"
                         >
-                            <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                            <img
+                                src="./src/assets/images/7ed1b2a4-7810-4fd1-bd97-64a10f193402.png"
+                                alt="jimdo logo"
+                                class="mb-10 h-11 w-29.5"
                             />
-                        </svg>
-                    </button>
-
-                    <!-- Dropdown listbox -->
-                    <ul
-                        id="lang-listbox"
-                        role="listbox"
-                        aria-label="Select language"
-                        class="absolute right-0 bottom-full mb-1 hidden min-w-[160px] rounded-md border border-gray-200 bg-white py-1 shadow-lg"
-                    >
-                        <li
-                            role="option"
-                            aria-selected="true"
-                            data-lang="English"
-                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                        </div>
+                        <ul class="flex justify-center md:justify-self-start">
+                            <li>
+                                <a href="" class="text-[28px]"
+                                    ><i class="fa-brands fa-facebook"></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="" class="p-3 text-[28px]"
+                                    ><i class="fa-brands fa-instagram"></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="" class="p-3 text-[28px]"
+                                    ><i class="fa-brands fa-tiktok"></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="" class="p-3 text-[28px]"
+                                    ><i class="fa-brands fa-youtube"></i
+                                ></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex w-full flex-col gap-6 md:flex-row md:justify-around md:gap-0">
+                        <div class="flex w-full flex-col gap-6 md:hidden">
+                            <div class="mobile-accordion">
+                                <button
+                                    class="mobile-acc-trigger flex w-full items-center justify-between px-6 py-4 text-base font-semibold"
+                                >
+                                    Products
+                                    <svg
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        class="mobile-acc-chevron size-5 transition-transform duration-200"
+                                    >
+                                        <path
+                                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="mobile-acc-panel hidden border-b border-gray-100 bg-gray-50 px-6 py-4"
+                                >
+                                    <ul>
+                                        <li><a href="#" class="mobile-acc-link">Website</a></li>
+                                        <li>
+                                            <a href="#" class="mobile-acc-link">Online Store</a>
+                                        </li>
+                                        <li><a href="#" class="mobile-acc-link">Domain</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mobile-accordion">
+                                <button
+                                    class="mobile-acc-trigger flex w-full items-center justify-between px-6 py-4 text-base font-semibold"
+                                >
+                                    About us
+                                    <svg
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        class="mobile-acc-chevron size-5 transition-transform duration-200"
+                                    >
+                                        <path
+                                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="mobile-acc-panel hidden border-b border-gray-100 bg-gray-50 px-6 py-4"
+                                >
+                                    <ul>
+                                        <li><a href="#" class="mobile-acc-link">About Jimdo</a></li>
+                                        <li><a href="#" class="mobile-acc-link">Careers</a></li>
+                                        <li><a href="#" class="mobile-acc-link">Press</a></li>
+                                        <li>
+                                            <a href="#" class="mobile-acc-link">Jimdo-ifo Index</a>
+                                        </li>
+                                        <li><a href="#" class="mobile-acc-link">Affiliates</a></li>
+                                        <li><a href="#" class="mobile-acc-link">Partnership</a></li>
+                                        <li><a href="#" class="mobile-acc-link">Sitemap</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mobile-accordion">
+                                <button
+                                    class="mobile-acc-trigger flex w-full items-center justify-between px-6 py-4 text-base font-semibold"
+                                >
+                                    Resources
+                                    <svg
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        class="mobile-acc-chevron size-5 transition-transform duration-200"
+                                    >
+                                        <path
+                                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd"
+                                            fill-rule="evenodd"
+                                        />
+                                    </svg>
+                                </button>
+                                <div
+                                    class="mobile-acc-panel hidden border-b border-gray-100 bg-gray-50 px-6 py-4"
+                                >
+                                    <ul>
+                                        <li><a href="#" class="mobile-acc-link">Jimdo Blog</a></li>
+                                        <li>
+                                            <a href="#" class="mobile-acc-link">JIMDOConnect</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="mobile-acc-link">Founder Stories</a>
+                                        </li>
+                                        <li><a href="#" class="mobile-acc-link">Inspiration</a></li>
+                                        <li><a href="#" class="mobile-acc-link">Help Center</a></li>
+                                        <li>
+                                            <a href="#" class="mobile-acc-link">Contact Support</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex md:gap-20 [&_h3]:text-[#6d6d6d]">
+                            <div>
+                                <h3 class="mb-4 font-semibold">Products</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#">Website</a></li>
+                                    <li><a href="#">Online Store</a></li>
+                                    <li><a href="#">Domain</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="mb-4 font-semibold">About us</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#">About Jimdo</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Press</a></li>
+                                    <li><a href="#">Jimdo-ifo Index</a></li>
+                                    <li><a href="#">Affiliates</a></li>
+                                    <li><a href="#">Partnership</a></li>
+                                    <li><a href="#">Sitemap</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="mb-4 font-semibold">Resources</h3>
+                                <ul class="space-y-2">
+                                    <li><a href="#">Jimdo Blog</a></li>
+                                    <li><a href="#">JIMDOConnect</a></li>
+                                    <li><a href="#">Founder Stories</a></li>
+                                    <li><a href="#">Inspiration</a></li>
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Contact Support</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col-reverse gap-6 md:flex-row md:justify-between">
+                    <div>
+                        <ul
+                            class="flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row md:justify-start md:gap-6"
                         >
+                            <li><a href="#">Legal notice</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cookie Settings</a></li>
+                        </ul>
+                    </div>
+                    <!-- Language Selector -->
+                    <div class="relative flex justify-center md:justify-end" id="lang-selector">
+                        <button
+                            id="lang-btn"
+                            type="button"
+                            role="combobox"
+                            aria-haspopup="listbox"
+                            aria-expanded="false"
+                            aria-label="Switch language"
+                            class="flex items-center gap-2 bg-white px-3 py-2.5 text-sm font-semibold text-gray-700 transition"
+                        >
+                            <!-- Flags -->
+                            <img
+                                src="https://flagcdn.com/w20/gb.png"
+                                class="h-5 w-5 rounded-full object-cover"
+                                alt="UK Flag"
+                            />
+                            <img
+                                src="https://flagcdn.com/w20/us.png"
+                                class="h-5 w-5 rounded-full object-cover"
+                                alt="US Flag"
+                            />
+
+                            <!-- Text -->
+                            <span id="lang-label">English</span>
+
+                            <!-- Arrow -->
                             <svg
+                                id="lang-chevron"
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 60 30"
-                                class="h-4 w-7 rounded-[2px]"
+                                class="h-4 w-4 transition-transform duration-200"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
                                 aria-hidden="true"
                             >
-                                <clipPath id="t2">
-                                    <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
-                                </clipPath>
-                                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-                                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
                                 <path
-                                    d="M0,0 L60,30 M60,0 L0,30"
-                                    clip-path="url(#t2)"
-                                    stroke="#C8102E"
-                                    stroke-width="4"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"
                                 />
-                                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
-                                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
                             </svg>
-                            English
-                        </li>
-                        <li
-                            role="option"
-                            aria-selected="false"
-                            data-lang="Deutsch"
-                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
+                        </button>
+
+                        <!-- Dropdown listbox -->
+                        <ul
+                            id="lang-listbox"
+                            role="listbox"
+                            aria-label="Select language"
+                            class="absolute right-0 bottom-full mb-1 hidden w-48 rounded-md border border-gray-200 bg-white py-2 shadow-lg"
                         >
-                            <span class="text-base leading-none">🇩🇪</span> Deutsch
-                        </li>
-                        <li
-                            role="option"
-                            aria-selected="false"
-                            data-lang="Français"
-                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
-                        >
-                            <span class="text-base leading-none">🇫🇷</span> Français
-                        </li>
-                        <li
-                            role="option"
-                            aria-selected="false"
-                            data-lang="Español"
-                            class="lang-option flex cursor-pointer items-center gap-2 px-4 py-2 text-sm hover:bg-gray-100"
-                        >
-                            <span class="text-base leading-none">🇪🇸</span> Español
-                        </li>
-                    </ul>
+                            <li
+                                role="option"
+                                aria-selected="true"
+                                data-lang="English"
+                                class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
+                            >
+                                <img
+                                    src="https://flagcdn.com/w20/gb.png"
+                                    class="h-5 w-5 rounded-full object-cover"
+                                    alt="UK Flag"
+                                />
+                                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                    />
+                                </svg>
+                                <span>English</span>
+                            </li>
+                            <li
+                                role="option"
+                                aria-selected="false"
+                                data-lang="Deutsch"
+                                class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
+                            >
+                                <img
+                                    src="https://flagcdn.com/w20/de.png"
+                                    class="h-5 w-5 rounded-full object-cover"
+                                    alt="Germany Flag"
+                                />
+                                <span>Deutsch</span>
+                            </li>
+                            <li
+                                role="option"
+                                aria-selected="false"
+                                data-lang="Español"
+                                class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
+                            >
+                                <img
+                                    src="https://flagcdn.com/w20/es.png"
+                                    class="h-5 w-5 rounded-full object-cover"
+                                    alt="Spain Flag"
+                                />
+                                <span>Español</span>
+                            </li>
+                            <li
+                                role="option"
+                                aria-selected="false"
+                                data-lang="Français"
+                                class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
+                            >
+                                <img
+                                    src="https://flagcdn.com/w20/fr.png"
+                                    class="h-5 w-5 rounded-full object-cover"
+                                    alt="France Flag"
+                                />
+                                <span>Français</span>
+                            </li>
+                            <li
+                                role="option"
+                                aria-selected="false"
+                                data-lang="日本語"
+                                class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
+                            >
+                                <img
+                                    src="https://flagcdn.com/w20/jp.png"
+                                    class="h-5 w-5 rounded-full object-cover"
+                                    alt="Japan Flag"
+                                />
+                                <span>日本語</span>
+                            </li>
+                            <li
+                                role="option"
+                                aria-selected="false"
+                                data-lang="Nederlands"
+                                class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
+                            >
+                                <img
+                                    src="https://flagcdn.com/w20/nl.png"
+                                    class="h-5 w-5 rounded-full object-cover"
+                                    alt="Netherlands Flag"
+                                />
+                                <span>Nederlands</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
             </div>
         </footer>
 
@@ -1422,11 +1605,13 @@
                     let trackOffset = 0
                     let isAnimating = false
                     const trackTransition = 'transform 800ms cubic-bezier(0.25, 0.1, 0.25, 1)'
-                    const slideTransition = 'transform 800ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 800ms cubic-bezier(0.25, 0.1, 0.25, 1)'
+                    const slideTransition =
+                        'transform 800ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 800ms cubic-bezier(0.25, 0.1, 0.25, 1)'
 
                     const centerWindowIndex = Math.floor(visibleWindow / 2)
                     const totalItems = track.children.length
-                    const getSlides = () => Array.from(track.querySelectorAll('.portfolio-slide-item'))
+                    const getSlides = () =>
+                        Array.from(track.querySelectorAll('.portfolio-slide-item'))
                     const toPx = (value) => `${value.toFixed(3)}px`
 
                     const updateScaling = (centerIndex = activeItemIndex, animate = true) => {
@@ -1573,5 +1758,3 @@
         </script>
     </body>
 </html>
-
-
