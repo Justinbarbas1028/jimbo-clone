@@ -140,7 +140,7 @@ el-dropdown[open] svg {
 }
 
 .nav-trigger {
-    @apply relative h-full p-3;
+    @apply relative -m-3 h-full p-3;
 }
 
 .nav-trigger::after {
