@@ -107,6 +107,11 @@
     --font-euclid:
         'Euclid Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
         Helvetica, Arial, sans-serif;
+
+    /* Custom breakpoints */
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
 }
 
 @layer base {
