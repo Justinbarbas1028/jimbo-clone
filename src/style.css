@@ -285,8 +285,6 @@ el-dropdown[open] svg {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .container-wide {
