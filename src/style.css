@@ -237,10 +237,14 @@ el-dropdown[open] svg {
     @apply shrink-0;
     flex: 0 0 calc((100% - (var(--portfolio-gap) * 2)) / 3);
     transform-origin: center center;
+    max-width: 700px;
+    max-height: 500px;
 }
 
 .portfolio-slide-item img {
-    @apply block h-auto w-full object-contain;
+    @apply block w-full object-contain;
+    max-width: 700px;
+    max-height: 500px;
 }
 
 .portfolio-nav-btn {
