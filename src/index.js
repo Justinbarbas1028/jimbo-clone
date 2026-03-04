@@ -62,38 +62,38 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // Language selector
-    const langBtn = document.getElementById('lang-btn')
-    const langListbox = document.getElementById('lang-listbox')
-    const langChevron = document.getElementById('lang-chevron')
-    const langLabel = document.getElementById('lang-label')
+    const languageButton = document.getElementById('lang-btn')
+    const languageListbox = document.getElementById('lang-listbox')
+    const languageChevron = document.getElementById('lang-chevron')
+    const languageLabel = document.getElementById('lang-label')
 
-    if (langBtn && langListbox) {
-        langBtn.addEventListener('click', (e) => {
-            e.stopPropagation()
-            const isOpen = !langListbox.classList.contains('hidden')
-            langListbox.classList.toggle('hidden', isOpen)
-            langBtn.setAttribute('aria-expanded', String(!isOpen))
-            langChevron.style.transform = isOpen ? '' : 'rotate(180deg)'
+    if (languageButton && languageListbox) {
+        languageButton.addEventListener('click', (event) => {
+            event.stopPropagation()
+            const isOpen = !languageListbox.classList.contains('hidden')
+            languageListbox.classList.toggle('hidden', isOpen)
+            languageButton.setAttribute('aria-expanded', String(!isOpen))
+            languageChevron.style.transform = isOpen ? '' : 'rotate(180deg)'
         })
 
         document.querySelectorAll('.lang-option').forEach((option) => {
             option.addEventListener('click', () => {
-                const selected = option.getAttribute('data-lang')
-                langLabel.textContent = selected
+                const selectedLanguage = option.getAttribute('data-lang')
+                languageLabel.textContent = selectedLanguage
                 document
                     .querySelectorAll('.lang-option')
-                    .forEach((o) => o.setAttribute('aria-selected', 'false'))
+                    .forEach((otherOption) => otherOption.setAttribute('aria-selected', 'false'))
                 option.setAttribute('aria-selected', 'true')
-                langListbox.classList.add('hidden')
-                langBtn.setAttribute('aria-expanded', 'false')
-                langChevron.style.transform = ''
+                languageListbox.classList.add('hidden')
+                languageButton.setAttribute('aria-expanded', 'false')
+                languageChevron.style.transform = ''
             })
         })
 
         document.addEventListener('click', () => {
-            langListbox.classList.add('hidden')
-            langBtn.setAttribute('aria-expanded', 'false')
-            langChevron.style.transform = ''
+            languageListbox.classList.add('hidden')
+            languageButton.setAttribute('aria-expanded', 'false')
+            languageChevron.style.transform = ''
         })
     }
 
@@ -102,20 +102,20 @@ document.addEventListener('DOMContentLoaded', () => {
         .querySelectorAll('.mobile-acc-chevron')
         .forEach((chevron) => (chevron.style.transform = 'rotate(-90deg)'))
 
-    document.querySelectorAll('.mobile-accordion').forEach((item) => {
-        const trigger = item.querySelector('.mobile-acc-trigger')
-        const panel = item.querySelector('.mobile-acc-panel')
-        const chevron = item.querySelector('.mobile-acc-chevron')
-        trigger.addEventListener('click', () => {
-            const isOpen = !panel.classList.contains('hidden')
+    document.querySelectorAll('.mobile-accordion').forEach((accordionItem) => {
+        const accordionTrigger = accordionItem.querySelector('.mobile-acc-trigger')
+        const accordionPanel = accordionItem.querySelector('.mobile-acc-panel')
+        const accordionChevron = accordionItem.querySelector('.mobile-acc-chevron')
+        accordionTrigger.addEventListener('click', () => {
+            const isOpen = !accordionPanel.classList.contains('hidden')
             // Close all other panels
-            document.querySelectorAll('.mobile-acc-panel').forEach((p) => p.classList.add('hidden'))
+            document.querySelectorAll('.mobile-acc-panel').forEach((panel) => panel.classList.add('hidden'))
             document
                 .querySelectorAll('.mobile-acc-chevron')
-                .forEach((c) => (c.style.transform = 'rotate(-90deg)'))
+                .forEach((chevron) => (chevron.style.transform = 'rotate(-90deg)'))
             if (!isOpen) {
-                panel.classList.remove('hidden')
-                chevron.style.transform = 'rotate(90deg)'
+                accordionPanel.classList.remove('hidden')
+                accordionChevron.style.transform = 'rotate(90deg)'
             }
         })
     })
@@ -132,10 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const MOBILE_BREAKPOINT = 768
-        const getVisibleWindow = () => (window.innerWidth < MOBILE_BREAKPOINT ? 1 : 3)
+        const getVisibleSlideCount = () => (window.innerWidth < MOBILE_BREAKPOINT ? 1 : 3)
 
         const activeItemIndex = 1
-        let visibleWindow = getVisibleWindow()
+        let visibleSlideCount = getVisibleSlideCount()
         let itemWidth = 0
         let baseTrackOffset = 0
         let trackOffset = 0
@@ -144,10 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const slideTransition =
             'transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 200ms cubic-bezier(0.25, 0.1, 0.25, 1)'
 
-        let centerWindowIndex = Math.floor(visibleWindow / 2)
+        let centerSlideIndex = Math.floor(visibleSlideCount / 2)
         const totalItems = track.children.length
-        const getSlides = () => Array.from(track.querySelectorAll('.portfolio-slide-item'))
-        const toPx = (value) => `${value.toFixed(3)}px`
+        const getPortfolioSlides = () => Array.from(track.querySelectorAll('.portfolio-slide-item'))
+        const toPixelString = (value) => `${value.toFixed(3)}px`
 
         const updatePortfolioPagination = () => {
             if (!paginatorDots.length) return
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const updateScaling = (centerIndex = activeItemIndex, animate = true) => {
-            const slides = getSlides()
+            const slides = getPortfolioSlides()
             slides.forEach((slide, index) => {
                 slide.classList.add('transform')
                 if (animate) {
@@ -190,17 +190,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const measureCarousel = () => {
-            const slides = getSlides()
+            const slides = getPortfolioSlides()
             if (!slides.length) return
 
             const trackStyles = window.getComputedStyle(track)
             const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || '0')
             itemWidth = Math.round((slides[0].getBoundingClientRect().width + gap) * 1000) / 1000
 
-            baseTrackOffset = -(activeItemIndex - centerWindowIndex) * itemWidth
+            baseTrackOffset = -(activeItemIndex - centerSlideIndex) * itemWidth
             trackOffset = baseTrackOffset
             track.style.transition = 'none'
-            track.style.transform = `translateX(${toPx(trackOffset)})`
+            track.style.transform = `translateX(${toPixelString(trackOffset)})`
 
             updateScaling(activeItemIndex, false)
             updatePortfolioPagination()
@@ -210,18 +210,18 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
 
-        const moveNext = () => {
+        const moveToNextSlide = () => {
             if (isAnimating || totalItems < 2 || itemWidth === 0) return
             isAnimating = true
 
             trackOffset = baseTrackOffset - itemWidth
             updateScaling(activeItemIndex + 1)
             track.style.transition = trackTransition
-            track.style.transform = `translateX(${toPx(trackOffset)})`
+            track.style.transform = `translateX(${toPixelString(trackOffset)})`
 
-            const handleNextEnd = (event) => {
+            const handleNextTransitionEnd = (event) => {
                 if (event.target !== track || event.propertyName !== 'transform') return
-                track.removeEventListener('transitionend', handleNextEnd)
+                track.removeEventListener('transitionend', handleNextTransitionEnd)
 
                 const firstSlide = track.firstElementChild
                 if (firstSlide) {
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 track.style.transition = 'none'
                 trackOffset = baseTrackOffset
-                track.style.transform = `translateX(${toPx(trackOffset)})`
+                track.style.transform = `translateX(${toPixelString(trackOffset)})`
 
                 updateScaling(activeItemIndex, false)
                 updatePortfolioPagination()
@@ -245,10 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             }
 
-            track.addEventListener('transitionend', handleNextEnd)
+            track.addEventListener('transitionend', handleNextTransitionEnd)
         }
 
-        const movePrev = () => {
+        const moveToPreviousSlide = () => {
             if (isAnimating || totalItems < 2 || itemWidth === 0) return
             const lastSlide = track.lastElementChild
             if (!lastSlide) return
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             trackOffset = baseTrackOffset - itemWidth
             track.style.transition = 'none'
-            track.style.transform = `translateX(${toPx(trackOffset)})`
+            track.style.transform = `translateX(${toPixelString(trackOffset)})`
             lastSlide.remove()
 
             void track.offsetHeight
@@ -268,45 +268,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
             track.style.transition = trackTransition
             trackOffset = baseTrackOffset
-            track.style.transform = `translateX(${toPx(trackOffset)})`
+            track.style.transform = `translateX(${toPixelString(trackOffset)})`
 
-            const handlePrevEnd = (event) => {
+            const handlePrevTransitionEnd = (event) => {
                 if (event.target !== track || event.propertyName !== 'transform') return
-                track.removeEventListener('transitionend', handlePrevEnd)
+                track.removeEventListener('transitionend', handlePrevTransitionEnd)
 
                 updateScaling(activeItemIndex, false)
                 updatePortfolioPagination()
                 isAnimating = false
             }
 
-            track.addEventListener('transitionend', handlePrevEnd)
+            track.addEventListener('transitionend', handlePrevTransitionEnd)
         }
 
         prevBtn?.addEventListener('click', (event) => {
             event.preventDefault()
-            movePrev()
+            moveToPreviousSlide()
         })
 
         nextBtn?.addEventListener('click', (event) => {
             event.preventDefault()
-            moveNext()
+            moveToNextSlide()
         })
 
         portfolioCarousel.addEventListener('contextmenu', (event) => {
             event.preventDefault()
-            moveNext()
+            moveToNextSlide()
         })
 
-        let resizeTimeout
+        let resizeDebounceTimer
         window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout)
-            resizeTimeout = setTimeout(() => {
+            clearTimeout(resizeDebounceTimer)
+            resizeDebounceTimer = setTimeout(() => {
                 if (isAnimating) return
 
-                const newVisibleWindow = getVisibleWindow()
-                if (newVisibleWindow !== visibleWindow) {
-                    visibleWindow = newVisibleWindow
-                    centerWindowIndex = Math.floor(visibleWindow / 2)
+                const newVisibleSlideCount = getVisibleSlideCount()
+                if (newVisibleSlideCount !== visibleSlideCount) {
+                    visibleSlideCount = newVisibleSlideCount
+                    centerSlideIndex = Math.floor(visibleSlideCount / 2)
                 }
 
                 measureCarousel()
