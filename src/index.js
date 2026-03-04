@@ -126,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const track = document.getElementById('portfolio-track')
         const prevBtn = document.getElementById('portfolio-prev')
         const nextBtn = document.getElementById('portfolio-next')
+        const paginatorDots = Array.from(document.querySelectorAll('[data-portfolio-dot]'))
         if (!track) {
             return
         }
@@ -147,6 +148,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalItems = track.children.length
         const getSlides = () => Array.from(track.querySelectorAll('.portfolio-slide-item'))
         const toPx = (value) => `${value.toFixed(3)}px`
+
+        const updatePortfolioPagination = () => {
+            if (!paginatorDots.length) return
+
+            const activeSlide = track.children[activeItemIndex]
+            const activeDotIndex = Number(activeSlide?.dataset.itemId ?? 0)
+
+            paginatorDots.forEach((dot, index) => {
+                const isActive = index === activeDotIndex
+                dot.classList.toggle('bg-[#004ced]', isActive)
+                dot.classList.toggle('bg-gray-300', !isActive)
+                dot.setAttribute('aria-current', isActive ? 'true' : 'false')
+            })
+        }
 
         const updateScaling = (centerIndex = activeItemIndex, animate = true) => {
             const slides = getSlides()
@@ -188,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             track.style.transform = `translateX(${toPx(trackOffset)})`
 
             updateScaling(activeItemIndex, false)
+            updatePortfolioPagination()
 
             requestAnimationFrame(() => {
                 track.style.transition = trackTransition
@@ -219,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 track.style.transform = `translateX(${toPx(trackOffset)})`
 
                 updateScaling(activeItemIndex, false)
+                updatePortfolioPagination()
 
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
@@ -258,6 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 track.removeEventListener('transitionend', handlePrevEnd)
 
                 updateScaling(activeItemIndex, false)
+                updatePortfolioPagination()
                 isAnimating = false
             }
 
