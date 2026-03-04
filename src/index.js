@@ -97,8 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return
         }
 
+        const MOBILE_BREAKPOINT = 768
+        const getVisibleWindow = () => (window.innerWidth < MOBILE_BREAKPOINT ? 1 : 3)
+
         const activeItemIndex = 1
-        const visibleWindow = 3
+        let visibleWindow = getVisibleWindow()
         let itemWidth = 0
         let baseTrackOffset = 0
         let trackOffset = 0
@@ -107,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const slideTransition =
             'transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 200ms cubic-bezier(0.25, 0.1, 0.25, 1)'
 
-        const centerWindowIndex = Math.floor(visibleWindow / 2)
+        let centerWindowIndex = Math.floor(visibleWindow / 2)
         const totalItems = track.children.length
         const getSlides = () => Array.from(track.querySelectorAll('.portfolio-slide-item'))
         const toPx = (value) => `${value.toFixed(3)}px`
@@ -243,9 +246,20 @@ document.addEventListener('DOMContentLoaded', () => {
             moveNext()
         })
 
+        let resizeTimeout
         window.addEventListener('resize', () => {
-            if (isAnimating) return
-            measureCarousel()
+            clearTimeout(resizeTimeout)
+            resizeTimeout = setTimeout(() => {
+                if (isAnimating) return
+
+                const newVisibleWindow = getVisibleWindow()
+                if (newVisibleWindow !== visibleWindow) {
+                    visibleWindow = newVisibleWindow
+                    centerWindowIndex = Math.floor(visibleWindow / 2)
+                }
+
+                measureCarousel()
+            }, 150)
         })
 
         measureCarousel()
