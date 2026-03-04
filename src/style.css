@@ -210,7 +210,7 @@ el-dropdown[open] svg {
 }
 
 .mobile-acc-link {
-    @apply text-brand block py-[0.4rem] text-[0.95rem] font-semibold;
+    @apply text-brand mb-2 block py-[0.4rem] font-semibold;
 }
 
 .mobile-acc-link:hover {
