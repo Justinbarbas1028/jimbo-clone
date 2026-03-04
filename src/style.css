@@ -254,11 +254,11 @@ el-dropdown[open] svg {
 }
 
 .portfolio-nav-btn {
-    @apply absolute top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-content-center rounded-full bg-white text-xl text-gray-800 shadow-md transition-colors duration-300;
+    @apply absolute top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-content-center bg-transparent text-xl text-gray-800 shadow-none transition-colors duration-300;
 }
 
 .portfolio-nav-btn:hover {
-    @apply bg-blue-600 text-white;
+    @apply text-blue-600;
 }
 
 .portfolio-nav-btn.left {
@@ -279,13 +279,52 @@ el-dropdown[open] svg {
 
 @media (max-width: 767px) {
     .portfolio-carousel {
-        --portfolio-gap: 0.4rem;
+        --portfolio-gap: 0px;
+        overflow: hidden;
+    }
+
+    .portfolio-viewport {
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .portfolio-track {
+        gap: 0;
     }
 
     .portfolio-slide-item {
-        /* Mobile: 1 main image with side peeks (85% main, 7.5% peek on each side) */
-        flex: 0 0 85%;
-        max-width: 85%;
+        /* Mobile: 1 full centered image, no side peeks */
+        flex: 0 0 100vw;
+        width: 100vw;
+        max-width: 100vw !important;
+        min-width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 4rem; /* Space for nav buttons */
+        transform: scale(1) !important;
+        box-sizing: border-box;
+    }
+
+    .portfolio-slide-item img {
+        width: 100%;
+        min-width: 320px;
+        max-width: 600px;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .portfolio-slide-item:not(.scale-100) {
+        opacity: 0 !important;
+        visibility: hidden;
+    }
+
+    .portfolio-slide-item.scale-100 {
+        opacity: 1 !important;
+        visibility: visible;
     }
 
     .portfolio-nav-btn {

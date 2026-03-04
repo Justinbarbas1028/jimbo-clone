@@ -195,7 +195,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const trackStyles = window.getComputedStyle(track)
             const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || '0')
-            itemWidth = Math.round((slides[0].getBoundingClientRect().width + gap) * 1000) / 1000
+            
+            // For mobile, itemWidth should be the viewport width since it's 100vw
+            if (visibleWindow === 1) {
+                itemWidth = window.innerWidth
+            } else {
+                itemWidth = Math.round((slides[0].getBoundingClientRect().width + gap) * 1000) / 1000
+            }
 
             baseTrackOffset = -(activeItemIndex - centerWindowIndex) * itemWidth
             trackOffset = baseTrackOffset
