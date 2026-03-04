@@ -205,6 +205,14 @@ el-dropdown[open] svg {
     @apply bg-gray-100;
 }
 
+.footer-acc-trigger {
+    @apply text-brand cursor-pointer gap-2 bg-transparent;
+}
+
+.footer-acc-trigger:hover {
+    @apply bg-gray-100;
+}
+
 .mobile-acc-heading {
     @apply mb-2 text-xs font-bold tracking-[0.05em] text-gray-600 uppercase;
 }

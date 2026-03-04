@@ -171,6 +171,30 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    // Footer accordion toggle (Products, About us, Resources)
+    document.querySelectorAll('.footer-accordion').forEach((item) => {
+        const trigger = item.querySelector('.footer-acc-trigger')
+        const panel = item.querySelector('.footer-acc-panel')
+        const chevron = item.querySelector('.footer-acc-chevron')
+        if (!trigger || !panel) return
+
+        trigger.addEventListener('click', () => {
+            const isOpen = !panel.classList.contains('hidden')
+            // Close all footer accordions first
+            document.querySelectorAll('.footer-accordion').forEach((acc) => {
+                const p = acc.querySelector('.footer-acc-panel')
+                const c = acc.querySelector('.footer-acc-chevron')
+                if (p) p.classList.add('hidden')
+                if (c) c.style.transform = ''
+            })
+            // If it was closed, open this one
+            if (!isOpen) {
+                panel.classList.remove('hidden')
+                if (chevron) chevron.style.transform = 'rotate(180deg)'
+            }
+        })
+    })
+
     // Portfolio carousel
     const portfolioCarousel = document.getElementById('portfolio-carousel')
     if (portfolioCarousel) {
