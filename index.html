@@ -12,7 +12,10 @@
         <title>my-project</title>
     </head>
     <body class="font-euclid bg-[#f8f8f8]">
-        <nav class="sticky top-0 z-50 border-b border-gray-200 bg-white px-5 shadow-sm">
+        <nav
+            id="top-nav"
+            class="sticky top-0 z-50 border-b border-gray-200 bg-white px-5 shadow-sm"
+        >
             <div class="container flex h-16 items-center justify-between xl:h-22.5 xl:px-10">
                 <div class="text-brand w-26 text-lg font-semibold">
                     <img
@@ -23,22 +26,27 @@
                 </div>
 
                 <!-- Hamburger button (mobile only) -->
-                <button
-                    id="mobile-menu-btn"
-                    class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded focus:outline-none xl:hidden"
-                    aria-label="Toggle menu"
-                    aria-expanded="false"
-                >
-                    <span
-                        class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
-                    ></span>
-                    <span
-                        class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
-                    ></span>
-                    <span
-                        class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
-                    ></span>
-                </button>
+                <div class="flex items-center justify-center gap-2">
+                    <div id="mobile-signup" class="xl:hidden">
+                        <a href="#" class="border-b">Sign Up</a>
+                    </div>
+                    <button
+                        id="mobile-menu-btn"
+                        class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded focus:outline-none xl:hidden"
+                        aria-label="Toggle menu"
+                        aria-expanded="false"
+                    >
+                        <span
+                            class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
+                        ></span>
+                        <span
+                            class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
+                        ></span>
+                        <span
+                            class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
+                        ></span>
+                    </button>
+                </div>
 
                 <!-- Desktop Navigation -->
                 <ul class="text-brand hidden h-full items-center gap-8 xl:flex">

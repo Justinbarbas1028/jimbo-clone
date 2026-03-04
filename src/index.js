@@ -13,13 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile hamburger toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn')
     const mobileMenu = document.getElementById('mobile-menu')
+    const topNav = document.getElementById('top-nav')
+    const mobileSignup = document.getElementById('mobile-signup')
     const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line')
     let mobileMenuOpen = false
 
+    const setMobileMenuState = (isOpen) => {
+        mobileMenu.classList.toggle('hidden', !isOpen)
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen))
+
+        topNav?.classList.toggle('bg-white', !isOpen)
+        topNav?.classList.toggle('border-b', !isOpen)
+        topNav?.classList.toggle('border-gray-200', !isOpen)
+        topNav?.classList.toggle('shadow-sm', !isOpen)
+
+        topNav?.classList.toggle('bg-transparent', isOpen)
+        topNav?.classList.toggle('border-transparent', isOpen)
+        topNav?.classList.toggle('shadow-none', isOpen)
+
+        mobileSignup?.classList.toggle('hidden', isOpen)
+    }
+
     mobileMenuBtn.addEventListener('click', () => {
         mobileMenuOpen = !mobileMenuOpen
-        mobileMenu.classList.toggle('hidden', !mobileMenuOpen)
-        mobileMenuBtn.setAttribute('aria-expanded', String(mobileMenuOpen))
+        setMobileMenuState(mobileMenuOpen)
         // Animate hamburger to X
         if (mobileMenuOpen) {
             hamburgerLines[0].style.transform = 'translateY(8px) rotate(45deg)'
@@ -69,6 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mobile accordion
+    document
+        .querySelectorAll('.mobile-acc-chevron')
+        .forEach((chevron) => (chevron.style.transform = 'rotate(-90deg)'))
+
     document.querySelectorAll('.mobile-accordion').forEach((item) => {
         const trigger = item.querySelector('.mobile-acc-trigger')
         const panel = item.querySelector('.mobile-acc-panel')
@@ -79,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.mobile-acc-panel').forEach((p) => p.classList.add('hidden'))
             document
                 .querySelectorAll('.mobile-acc-chevron')
-                .forEach((c) => (c.style.transform = ''))
+                .forEach((c) => (c.style.transform = 'rotate(-90deg)'))
             if (!isOpen) {
                 panel.classList.remove('hidden')
-                chevron.style.transform = 'rotate(180deg)'
+                chevron.style.transform = 'rotate(90deg)'
             }
         })
     })
