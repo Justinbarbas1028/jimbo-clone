@@ -224,6 +224,8 @@ el-dropdown[open] svg {
 .portfolio-carousel {
     --portfolio-gap: 0.75rem;
     @apply relative w-full;
+    cursor: grab;
+    user-select: none;
 }
 
 .portfolio-track {

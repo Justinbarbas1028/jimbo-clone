@@ -281,7 +281,25 @@
             id="mobile-menu"
             class="fixed bottom-0 left-0 z-40 hidden h-full max-h-screen w-full max-w-[85vw] flex-col overflow-y-auto border-r border-gray-200 bg-white shadow-lg"
         >
-            <div class="mt-[80px] flex h-full flex-col justify-evenly">
+            <!-- Drill-down back header (hidden by default) -->
+            <div id="mobile-drilldown-header" class="mt-[80px] hidden items-center gap-3 px-6 py-4">
+                <button
+                    id="mobile-back-btn"
+                    type="button"
+                    class="flex items-center gap-2 text-[20px] font-semibold"
+                >
+                    <svg viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                        <path
+                            d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                            clip-rule="evenodd"
+                            fill-rule="evenodd"
+                        />
+                    </svg>
+                    Main menu
+                </button>
+            </div>
+
+            <div id="mobile-menu-main" class="mt-[80px] flex h-full flex-col justify-evenly">
                 <ul class="text-brand flex flex-col">
                     <!-- Website -->
                     <li class="mobile-accordion px-6 py-3">

@@ -19,6 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line')
     let mobileMenuOpen = false
 
+    // Reset drill-down state helper (used before drill-down elements are queried)
+    const resetDrilldown = () => {
+        const mainContent = document.getElementById('mobile-menu-main')
+        const header = document.getElementById('mobile-drilldown-header')
+        const footer = document.querySelector('#mobile-menu > div.sticky')
+        const activePanel = document.getElementById('mobile-drilldown-panel')
+        if (mainContent) mainContent.classList.remove('hidden')
+        if (header) {
+            header.classList.add('hidden')
+            header.classList.remove('flex')
+        }
+        if (footer) footer.classList.remove('hidden')
+        if (activePanel) activePanel.remove()
+        document.querySelectorAll('.mobile-acc-panel').forEach((p) => p.classList.add('hidden'))
+    }
+
     const setMobileMenuState = (isOpen) => {
         mobileMenu.classList.toggle('hidden', !isOpen)
         mobileMenuBackdrop?.classList.toggle('hidden', !isOpen)
@@ -41,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mobileMenuOpen = false
         setMobileMenuState(false)
+        resetDrilldown()
         hamburgerLines[0].style.transform = ''
         hamburgerLines[1].style.opacity = ''
         hamburgerLines[2].style.transform = ''
@@ -49,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuBtn.addEventListener('click', () => {
         mobileMenuOpen = !mobileMenuOpen
         setMobileMenuState(mobileMenuOpen)
+        if (!mobileMenuOpen) resetDrilldown()
         // Animate hamburger to X
         if (mobileMenuOpen) {
             hamburgerLines[0].style.transform = 'translateY(8px) rotate(45deg)'
@@ -97,26 +115,59 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    // Mobile accordion
+    // Mobile drill-down navigation
+    const mobileMenuMain = document.getElementById('mobile-menu-main')
+    const drilldownHeader = document.getElementById('mobile-drilldown-header')
+    const mobileBackBtn = document.getElementById('mobile-back-btn')
+    const mobileLoginFooter = document.querySelector('#mobile-menu > div.sticky')
+
     document
         .querySelectorAll('.mobile-acc-chevron')
         .forEach((chevron) => (chevron.style.transform = 'rotate(-90deg)'))
 
+    const closeDrilldown = () => {
+        // Show main menu content
+        mobileMenuMain.classList.remove('hidden')
+        // Hide drill-down header
+        drilldownHeader.classList.add('hidden')
+        drilldownHeader.classList.remove('flex')
+        // Show login footer
+        if (mobileLoginFooter) mobileLoginFooter.classList.remove('hidden')
+        // Hide all panels
+        document.querySelectorAll('.mobile-acc-panel').forEach((p) => p.classList.add('hidden'))
+        document
+            .querySelectorAll('.mobile-acc-chevron')
+            .forEach((c) => (c.style.transform = 'rotate(-90deg)'))
+        // Remove any active drilldown panel
+        const activePanel = document.getElementById('mobile-drilldown-panel')
+        if (activePanel) activePanel.remove()
+    }
+
+    mobileBackBtn?.addEventListener('click', closeDrilldown)
+
     document.querySelectorAll('.mobile-accordion').forEach((item) => {
         const trigger = item.querySelector('.mobile-acc-trigger')
         const panel = item.querySelector('.mobile-acc-panel')
-        const chevron = item.querySelector('.mobile-acc-chevron')
+        if (!trigger || !panel) return
+
         trigger.addEventListener('click', () => {
-            const isOpen = !panel.classList.contains('hidden')
-            // Close all other panels
-            document.querySelectorAll('.mobile-acc-panel').forEach((p) => p.classList.add('hidden'))
-            document
-                .querySelectorAll('.mobile-acc-chevron')
-                .forEach((c) => (c.style.transform = 'rotate(-90deg)'))
-            if (!isOpen) {
-                panel.classList.remove('hidden')
-                chevron.style.transform = 'rotate(90deg)'
-            }
+            // Hide main menu content
+            mobileMenuMain.classList.add('hidden')
+            // Hide login footer
+            if (mobileLoginFooter) mobileLoginFooter.classList.add('hidden')
+            // Show drill-down header
+            drilldownHeader.classList.remove('hidden')
+            drilldownHeader.classList.add('flex')
+            // Remove old drilldown panel if existing
+            const oldPanel = document.getElementById('mobile-drilldown-panel')
+            if (oldPanel) oldPanel.remove()
+            // Clone the panel content into a new visible container
+            const drillPanel = panel.cloneNode(true)
+            drillPanel.id = 'mobile-drilldown-panel'
+            drillPanel.classList.remove('hidden')
+            drillPanel.classList.add('flex', 'flex-col', 'px-6', 'py-4', 'overflow-y-auto')
+            // Insert after drill-down header
+            drilldownHeader.insertAdjacentElement('afterend', drillPanel)
         })
     })
 
@@ -195,12 +246,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const trackStyles = window.getComputedStyle(track)
             const gap = parseFloat(trackStyles.columnGap || trackStyles.gap || '0')
-            
+
             // For mobile, itemWidth should be the viewport width since it's 100vw
             if (visibleWindow === 1) {
                 itemWidth = window.innerWidth
             } else {
-                itemWidth = Math.round((slides[0].getBoundingClientRect().width + gap) * 1000) / 1000
+                itemWidth =
+                    Math.round((slides[0].getBoundingClientRect().width + gap) * 1000) / 1000
             }
 
             baseTrackOffset = -(activeItemIndex - centerWindowIndex) * itemWidth
@@ -302,6 +354,62 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault()
             moveNext()
         })
+
+        // Drag / swipe support
+        let isDragging = false
+        let dragStartX = 0
+        let dragCurrentX = 0
+        const DRAG_THRESHOLD = 50
+
+        const getPointerX = (e) => (e.touches ? e.touches[0].clientX : e.clientX)
+
+        const onDragStart = (e) => {
+            if (isAnimating) return
+            isDragging = true
+            dragStartX = getPointerX(e)
+            dragCurrentX = dragStartX
+            track.style.transition = 'none'
+            track.style.cursor = 'grabbing'
+        }
+
+        const onDragMove = (e) => {
+            if (!isDragging) return
+            dragCurrentX = getPointerX(e)
+            const delta = dragCurrentX - dragStartX
+            track.style.transform = `translateX(${toPx(baseTrackOffset + delta)})`
+        }
+
+        const onDragEnd = () => {
+            if (!isDragging) return
+            isDragging = false
+            track.style.cursor = ''
+            const delta = dragCurrentX - dragStartX
+
+            if (Math.abs(delta) > DRAG_THRESHOLD) {
+                if (delta < 0) {
+                    moveNext()
+                } else {
+                    movePrev()
+                }
+            } else {
+                // Snap back
+                track.style.transition = trackTransition
+                track.style.transform = `translateX(${toPx(baseTrackOffset)})`
+            }
+        }
+
+        // Mouse events
+        portfolioCarousel.addEventListener('mousedown', onDragStart)
+        window.addEventListener('mousemove', onDragMove)
+        window.addEventListener('mouseup', onDragEnd)
+
+        // Touch events
+        portfolioCarousel.addEventListener('touchstart', onDragStart, { passive: true })
+        window.addEventListener('touchmove', onDragMove, { passive: true })
+        window.addEventListener('touchend', onDragEnd)
+
+        // Prevent image ghost drag
+        track.addEventListener('dragstart', (e) => e.preventDefault())
 
         let resizeTimeout
         window.addEventListener('resize', () => {
