@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile hamburger toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn')
     const mobileMenu = document.getElementById('mobile-menu')
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop')
     const topNav = document.getElementById('top-nav')
     const mobileSignup = document.getElementById('mobile-signup')
     const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line')
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setMobileMenuState = (isOpen) => {
         mobileMenu.classList.toggle('hidden', !isOpen)
+        mobileMenuBackdrop?.classList.toggle('hidden', !isOpen)
         mobileMenuBtn.setAttribute('aria-expanded', String(isOpen))
 
         topNav?.classList.toggle('bg-white', !isOpen)
@@ -33,6 +35,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mobileSignup?.classList.toggle('hidden', isOpen)
     }
+
+    mobileMenuBackdrop?.addEventListener('click', () => {
+        if (!mobileMenuOpen) return
+
+        mobileMenuOpen = false
+        setMobileMenuState(false)
+        hamburgerLines[0].style.transform = ''
+        hamburgerLines[1].style.opacity = ''
+        hamburgerLines[2].style.transform = ''
+    })
 
     mobileMenuBtn.addEventListener('click', () => {
         mobileMenuOpen = !mobileMenuOpen
