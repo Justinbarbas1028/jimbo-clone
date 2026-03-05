@@ -21,7 +21,9 @@
 @import "flowbite/src/themes/mono";
 */
 
-/* Euclid Circular A — local font files */
+/* =========================
+   EUCLID CIRCULAR A FONT-FACE DEFINITIONS 
+========================= */
 @font-face {
     font-family: 'Euclid Circular';
     src: url('/src/assets/fonts/Euclid%20Circular%20A%20Light.ttf') format('truetype');
@@ -136,6 +138,10 @@ el-dropdown[open] svg {
     @apply rotate-180;
 }
 
+/* =========================
+    NAVIGATION COMPONENT
+========================= */
+
 .nav-link,
 .nav-trigger {
     @apply text-brand inline-flex items-center text-base leading-[1.2] font-medium;
@@ -231,9 +237,13 @@ el-dropdown[open] svg {
     @apply transition-all duration-300 ease-in-out;
 }
 
+/* =========================
+   CAROUSEL COMPONENT
+========================= */
+
 .portfolio-carousel {
     --portfolio-gap: 0.75rem;
-    @apply relative w-full max-lg:[--portfolio-gap:0.55rem] max-md:[--portfolio-gap:0px] max-md:overflow-hidden;
+    @apply relative w-full max-lg:[--portfolio-gap:0.55rem] max-md:overflow-hidden max-md:[--portfolio-gap:0px];
     cursor: grab;
     user-select: none;
 }
@@ -247,7 +257,7 @@ el-dropdown[open] svg {
 }
 
 .portfolio-slide-item {
-    @apply shrink-0 max-md:flex max-md:w-screen max-md:min-w-screen max-md:max-w-screen max-md:items-center max-md:justify-center max-md:px-16 max-md:box-border max-md:scale-100;
+    @apply shrink-0 max-md:box-border max-md:flex max-md:w-screen max-md:max-w-screen max-md:min-w-screen max-md:scale-100 max-md:items-center max-md:justify-center max-md:px-16;
     flex: 0 0 calc((100% - (var(--portfolio-gap) * 2)) / 3);
     transform-origin: center center;
     max-width: 700px;
@@ -264,7 +274,7 @@ el-dropdown[open] svg {
 }
 
 .portfolio-slide-item img {
-    @apply block w-full object-contain max-md:min-w-80 max-md:max-w-[600px] max-md:mx-auto;
+    @apply block w-full object-contain max-md:mx-auto max-md:max-w-[600px] max-md:min-w-80;
     max-width: 700px;
     max-height: 500px;
 }
@@ -304,7 +314,7 @@ el-dropdown[open] svg {
 ========================= */
 
 .container {
-    @apply mx-auto w-full xs:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1600px];
+    @apply xs:max-w-[540px] mx-auto w-full md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1600px];
 }
 
 .container-wide {
@@ -365,7 +375,7 @@ el-dropdown[open] svg {
 }
 
 /* =========================
-   UTILITY PADDING CLASSES
+   CUSTOM UTILITY PADDING CLASSES
 ========================= */
 
 .no-padding {
@@ -447,8 +457,3 @@ el-dropdown[open] svg {
 .pr-20 {
     padding-right: 20px;
 }
-
-/* =========================
-   RESPONSIVE BREAKPOINTS
-========================= */
-
