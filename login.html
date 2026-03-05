@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="/src/styles/main.css" />
+        <title>my-project</title>
+    </head>
+    <body>
+        <section class="login-page">
+            <div class="login-forms-container">
+                <div class="login-forms">
+                    <a href="#"><span>Log in with Google</span></a>
+                    <a href="#"><span>Log in with Facebook</span></a>
+                    <a href="#"><span>Log in with Apple</span></a>
+                </div>
+                    <p><hr>or<hr></p>
+                    <form action="#" method="post">
+
+                        <div>
+                            <span>Icon</span>
+                            <input type="email" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div>
+                            <span>Icon</span>
+                            <input type="password" name="password" id="password" placeholder="Password">
+                        </div>
+                        <div>
+                            <a href="#">Forgot your password?</a>
+                        </div>
+                        <button type="button">Log in</button>
+                    </form>
+            </div>
+        </section>
+
+        <script type="module" src="/src/main.ts"></script>
+        <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+        <script src="./src/index.js"></script>
+    </body>
+</html>
