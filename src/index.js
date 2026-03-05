@@ -80,18 +80,47 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     // Language selector
+    const langSelector = document.getElementById('lang-selector')
     const langBtn = document.getElementById('lang-btn')
     const langListbox = document.getElementById('lang-listbox')
     const langChevron = document.getElementById('lang-chevron')
     const langLabel = document.getElementById('lang-label')
 
-    if (langBtn && langListbox) {
+    if (langSelector && langBtn && langListbox && langChevron && langLabel) {
+        const openLangListbox = () => {
+            langListbox.classList.remove('hidden')
+            langBtn.setAttribute('aria-expanded', 'true')
+            langChevron.style.transform = 'rotate(180deg)'
+        }
+
+        const closeLangListbox = () => {
+            langListbox.classList.add('hidden')
+            langBtn.setAttribute('aria-expanded', 'false')
+            langChevron.style.transform = ''
+        }
+
+        const toggleLangListbox = () => {
+            const isOpen = !langListbox.classList.contains('hidden')
+            if (isOpen) {
+                closeLangListbox()
+                return
+            }
+            openLangListbox()
+        }
+
+        const supportsHover = window.matchMedia('(hover: hover)').matches
+        if (supportsHover) {
+            langSelector.addEventListener('mouseenter', openLangListbox)
+            langSelector.addEventListener('mouseleave', closeLangListbox)
+        }
+
         langBtn.addEventListener('click', (e) => {
             e.stopPropagation()
-            const isOpen = !langListbox.classList.contains('hidden')
-            langListbox.classList.toggle('hidden', isOpen)
-            langBtn.setAttribute('aria-expanded', String(!isOpen))
-            langChevron.style.transform = isOpen ? '' : 'rotate(180deg)'
+            if (supportsHover) {
+                openLangListbox()
+                return
+            }
+            toggleLangListbox()
         })
 
         document.querySelectorAll('.lang-option').forEach((option) => {
@@ -102,16 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     .querySelectorAll('.lang-option')
                     .forEach((o) => o.setAttribute('aria-selected', 'false'))
                 option.setAttribute('aria-selected', 'true')
-                langListbox.classList.add('hidden')
-                langBtn.setAttribute('aria-expanded', 'false')
-                langChevron.style.transform = ''
+                closeLangListbox()
             })
         })
 
-        document.addEventListener('click', () => {
-            langListbox.classList.add('hidden')
-            langBtn.setAttribute('aria-expanded', 'false')
-            langChevron.style.transform = ''
+        document.addEventListener('click', (event) => {
+            if (langSelector.contains(event.target)) return
+            closeLangListbox()
         })
     }
 
