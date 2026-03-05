@@ -12,7 +12,7 @@ A static frontend clone of the Jimdo marketing website, built with Vite, TypeScr
 
 ## Prerequisites
 
-- Node.js 18+ (or newer LTS)
+- Node.js LTS (18 or higher)
 - npm
 
 ## Getting Started
@@ -57,4 +57,5 @@ A static frontend clone of the Jimdo marketing website, built with Vite, TypeScr
 ## Notes
 
 - Responsive breakpoints used in this project are documented in [`screensizes.md`](./screensizes.md).
+- `src/index.js` is intentionally a JavaScript file used for page interaction behavior.
 - This repository currently does not define test scripts in `package.json`.
