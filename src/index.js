@@ -221,6 +221,70 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     })
 
+    // Worry-free websites switcher
+    const worrySection = document.getElementById('worry-free-websites')
+    if (worrySection) {
+        const worryButtons = Array.from(worrySection.querySelectorAll('[data-worry-item]'))
+        const previewMedia = document.getElementById('worry-preview-media')
+        const previewImage = document.getElementById('worry-preview-image')
+        const previewText = document.getElementById('worry-preview-text')
+
+        if (worryButtons.length && previewMedia && previewImage && previewText) {
+            worryButtons.forEach((button) => {
+                const imageSrc = button.getAttribute('data-image')
+                if (!imageSrc) return
+                const preloadedImage = new Image()
+                preloadedImage.src = imageSrc
+            })
+
+            let activeButton =
+                worryButtons.find((button) => button.classList.contains('is-active')) ||
+                worryButtons[0]
+            let transitionFrame = null
+
+            const setActiveButton = (targetButton) => {
+                worryButtons.forEach((button) => {
+                    const isActive = button === targetButton
+                    button.classList.toggle('is-active', isActive)
+                    button.setAttribute('aria-pressed', isActive ? 'true' : 'false')
+                })
+                activeButton = targetButton
+            }
+
+            const switchPreview = (targetButton) => {
+                if (!targetButton || targetButton === activeButton) return
+
+                const nextImage = targetButton.getAttribute('data-image')
+                const nextAlt = targetButton.getAttribute('data-alt') || ''
+                const nextDescription = targetButton.getAttribute('data-description') || ''
+                if (!nextImage || !nextDescription) return
+
+                setActiveButton(targetButton)
+                previewMedia.classList.add('is-out')
+                previewText.classList.add('is-out')
+
+                window.clearTimeout(transitionFrame)
+                transitionFrame = window.setTimeout(() => {
+                    previewImage.src = nextImage
+                    previewImage.alt = nextAlt
+                    previewText.textContent = nextDescription
+
+                    window.requestAnimationFrame(() => {
+                        previewMedia.classList.remove('is-out')
+                        previewText.classList.remove('is-out')
+                    })
+                }, 180)
+            }
+
+            setActiveButton(activeButton)
+            worryButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    switchPreview(button)
+                })
+            })
+        }
+    }
+
     // Portfolio carousel
     const portfolioCarousel = document.getElementById('portfolio-carousel')
     if (portfolioCarousel) {

@@ -159,32 +159,33 @@
             </section>
             <section>
                 <div>
-                    <div>
-                        <h2>How do I make a website?</h2>
-                        <p>
-                            Creating your own website has never been easier. With Jimdo, you have
-                            everything you need to take your small business online.
-                        </p>
-                    </div>
-                    <div>
-                        <ol>
-                            <li>
-                                Create a free account and answer a few questions about your website.
-                            </li>
-                            <li>
-                                Pull your business info from social media accounts on Google and
-                                Facebook.
-                            </li>
-                            <li>
-                                Choose a design. Use your own photos and texts or find images in our
-                                Image Library.
-                            </li>
-                            <li>Publish your website. Done!</li>
-                        </ol>
-                    </div>
-                    <div>
-                        <button type="button">Start Now</button>
-                    </div>
+                <div>
+                    <h2>How do I make a website?</h2>
+                    <p>
+                        Creating your own website has never been easier. With Jimdo, you have
+                        everything you need to take your small business online.
+                    </p>
+                </div>
+                <div>
+                    <ol>
+                        <li>
+                            Create a free account and answer a few questions about your website.
+                        </li>
+                        <li>
+                            Pull your business info from social media accounts on Google and
+                            Facebook.
+                        </li>
+                        <li>
+                            Choose a design. Use your own photos and texts or find images in our
+                            Image Library.
+                        </li>
+                        <li>Publish your website. Done!</li>
+                    </ol>
+                </div>
+                <div>
+                    <button type="button">Start Now</button>
+                </div>
+                    
                 </div>
             </section>
         </main>

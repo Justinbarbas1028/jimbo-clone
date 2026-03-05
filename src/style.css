@@ -310,6 +310,51 @@ el-dropdown[open] svg {
 }
 
 /* =========================
+   WORRY-FREE SECTION
+========================= */
+
+.worry-item-button {
+    width: 100%;
+    padding: 1.45rem 0;
+    border: 0;
+    background: transparent;
+    color: #5c6573;
+    font-size: clamp(1.3rem, 1.05rem + 0.75vw, 2rem);
+    line-height: 1.25;
+    text-align: left;
+    cursor: pointer;
+    transition: color 280ms ease;
+}
+
+.worry-item-button:hover {
+    color: #182131;
+}
+
+.worry-item-button.is-active {
+    color: #070b14;
+    font-weight: 500;
+}
+
+.worry-preview-media,
+.worry-preview-copy {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 320ms cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 320ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.worry-preview-media.is-out,
+.worry-preview-copy.is-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#worry-preview-text {
+    min-height: 6.75rem;
+}
+
+/* =========================
    GLOBAL CONTAINER
 ========================= */
 
