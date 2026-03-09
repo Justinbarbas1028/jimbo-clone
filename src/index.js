@@ -16,8 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop')
     const topNav = document.getElementById('top-nav')
     const mobileSignup = document.getElementById('mobile-signup')
-    const hamburgerLines = mobileMenuBtn.querySelectorAll('.hamburger-line')
+    const hamburgerLines = mobileMenuBtn?.querySelectorAll('.hamburger-line') ?? []
     let mobileMenuOpen = false
+
+    const resetHamburgerIcon = () => {
+        if (hamburgerLines.length < 3) return
+        hamburgerLines[0].style.transform = ''
+        hamburgerLines[1].style.opacity = ''
+        hamburgerLines[2].style.transform = ''
+    }
+
+    const openHamburgerIcon = () => {
+        if (hamburgerLines.length < 3) return
+        hamburgerLines[0].style.transform = 'translateY(8px) rotate(45deg)'
+        hamburgerLines[1].style.opacity = '0'
+        hamburgerLines[2].style.transform = 'translateY(-8px) rotate(-45deg)'
+    }
 
     // Reset drill-down state helper (used before drill-down elements are queried)
     const resetDrilldown = () => {
@@ -36,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const setMobileMenuState = (isOpen) => {
+        if (!mobileMenu || !mobileMenuBtn) return
         mobileMenu.classList.toggle('hidden', !isOpen)
         mobileMenuBackdrop?.classList.toggle('hidden', !isOpen)
         mobileMenuBtn.setAttribute('aria-expanded', String(isOpen))
@@ -52,32 +67,28 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileSignup?.classList.toggle('hidden', isOpen)
     }
 
-    mobileMenuBackdrop?.addEventListener('click', () => {
-        if (!mobileMenuOpen) return
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBackdrop?.addEventListener('click', () => {
+            if (!mobileMenuOpen) return
 
-        mobileMenuOpen = false
-        setMobileMenuState(false)
-        resetDrilldown()
-        hamburgerLines[0].style.transform = ''
-        hamburgerLines[1].style.opacity = ''
-        hamburgerLines[2].style.transform = ''
-    })
+            mobileMenuOpen = false
+            setMobileMenuState(false)
+            resetDrilldown()
+            resetHamburgerIcon()
+        })
 
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenuOpen = !mobileMenuOpen
-        setMobileMenuState(mobileMenuOpen)
-        if (!mobileMenuOpen) resetDrilldown()
-        // Animate hamburger to X
-        if (mobileMenuOpen) {
-            hamburgerLines[0].style.transform = 'translateY(8px) rotate(45deg)'
-            hamburgerLines[1].style.opacity = '0'
-            hamburgerLines[2].style.transform = 'translateY(-8px) rotate(-45deg)'
-        } else {
-            hamburgerLines[0].style.transform = ''
-            hamburgerLines[1].style.opacity = ''
-            hamburgerLines[2].style.transform = ''
-        }
-    })
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOpen = !mobileMenuOpen
+            setMobileMenuState(mobileMenuOpen)
+            if (!mobileMenuOpen) resetDrilldown()
+            // Animate hamburger to X
+            if (mobileMenuOpen) {
+                openHamburgerIcon()
+            } else {
+                resetHamburgerIcon()
+            }
+        })
+    }
 
     // Language selector
     const langSelector = document.getElementById('lang-selector')
@@ -152,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach((chevron) => (chevron.style.transform = 'rotate(-90deg)'))
 
     const closeDrilldown = () => {
+        if (!mobileMenuMain || !drilldownHeader) return
         // Show main menu content
         mobileMenuMain.classList.remove('hidden')
         // Hide drill-down header
@@ -177,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!trigger || !panel) return
 
         trigger.addEventListener('click', () => {
+            if (!mobileMenuMain || !drilldownHeader) return
             // Hide main menu content
             mobileMenuMain.classList.add('hidden')
             // Hide login footer
