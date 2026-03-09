@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        />
+        <link rel="stylesheet" href="/src/styles/main.css" />
+        <title>my-project</title>
+    </head>
+    <body>
+        <nav
+            id="top-nav"
+            class="sticky top-0 z-50 border-b border-gray-200 bg-white px-5 shadow-sm"
+        >
+            <div class="container flex h-16 items-center justify-between xl:h-22.5 xl:px-10">
+                <div class="text-brand w-26 bg-white text-lg font-semibold">
+                    <a href="/templates/homepage.html">
+                        <img
+                            src="/src/assets/images/7ed1b2a4-7810-4fd1-bd97-64a10f193402.png"
+                            alt=""
+                            srcset=""
+                        />
+                    </a>
+                </div>
+
+                <!-- Hamburger button (mobile only) -->
+                <div class="flex items-center justify-center gap-2">
+                    <div id="mobile-signup" class="xl:hidden">
+                        <a href="#" class="border-b">Sign Up</a>
+                    </div>
+                    <button
+                        id="mobile-menu-btn"
+                        class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded focus:outline-none xl:hidden"
+                        aria-label="Toggle menu"
+                        aria-expanded="false"
+                    >
+                        <span
+                            class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
+                        ></span>
+                        <span
+                            class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
+                        ></span>
+                        <span
+                            class="hamburger-line bg-brand block h-0.5 w-6 transition-all duration-300"
+                        ></span>
+                    </button>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="text-brand ml-35 hidden h-full flex-2 items-center gap-8 xl:flex">
+                    <li class="px-3">
+                        <el-dropdown class="inline-block">
+                            <button class="nav-trigger" data-nav-trigger type="button">
+                                Website
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    class="nav-chevron size-5"
+                                >
+                                    <path
+                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd"
+                                        fill-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+
+                            <el-menu anchor="bottom start" popover class="mega-menu w-200">
+                                <div class="website-grid grid">
+                                    <div class="mega-col">
+                                        <p class="mega-heading">OUR WEBSITE BUILDER</p>
+                                        <a href="#" class="mega-link">Create a website</a>
+                                        <a href="#" class="mega-link">Pricing and plans</a>
+                                        <a href="#" class="mega-link">Website examples</a>
+                                        <a href="#" class="mega-link">Your own domain</a>
+                                        <a href="#" class="mega-link">Founder Stories</a>
+                                    </div>
+                                    <div class="mega-col">
+                                        <p class="mega-heading">USEFUL TOOLS FOR YOUR WEBSITE</p>
+                                        <a href="#" class="mega-link">Warning-proof legal texts</a>
+                                        <a href="#" class="mega-sub">For privacy policy &amp; Co</a>
+                                        <a href="#" class="mega-link">Business listings</a>
+                                        <a href="#" class="mega-sub"
+                                            >For Google, Facebook &amp; Co.</a
+                                        >
+                                        <a href="#" class="mega-link">Online booking</a>
+                                        <a href="#" class="mega-sub">Directly via your website</a>
+                                        <a href="#" class="mega-link">Social media integration</a>
+                                        <a href="#" class="mega-sub"
+                                            >Promote on Facebook &amp; Instagram</a
+                                        >
+                                    </div>
+                                    <div class="mega-col mega-col-muted">
+                                        <p class="mega-heading">FOR YOUR INDUSTRY</p>
+                                        <a href="#" class="mega-link">Online portfolio</a>
+                                        <a href="#" class="mega-link">Restaurant websites</a>
+                                        <a href="#" class="mega-link">Coaches</a>
+                                        <a href="#" class="mega-link">Musicians &amp; Bands</a>
+                                        <a href="#" class="mega-link">Real estate agents</a>
+                                        <a href="#" class="mega-link">Doctors &amp; practices</a>
+                                    </div>
+                                </div>
+                            </el-menu>
+                        </el-dropdown>
+                    </li>
+
+                    <li>
+                        <el-dropdown class="inline-block">
+                            <button class="nav-trigger" data-nav-trigger type="button">
+                                Online Store
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    class="nav-chevron size-5"
+                                >
+                                    <path
+                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd"
+                                        fill-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+
+                            <el-menu anchor="bottom start" popover class="mega-menu w-171.25">
+                                <div class="online-store-grid grid">
+                                    <div class="mega-col">
+                                        <p class="mega-heading">OUR ONLINE STORE BUILDER</p>
+                                        <a href="#" class="mega-link">Create an online store</a>
+                                        <a href="#" class="mega-link">Pricing and Plans</a>
+                                        <a href="#" class="mega-link">Online store examples</a>
+                                        <a href="#" class="mega-link">Your own domain</a>
+                                        <a href="#" class="mega-link">Founder Stories</a>
+                                    </div>
+                                    <div class="mega-col">
+                                        <p class="mega-heading">USEFUL TOOLS FOR YOUR STORE</p>
+                                        <a href="#" class="mega-link">Warning-proof legal texts</a>
+                                        <a href="#" class="mega-sub"
+                                            >For general terms and conditions, privacy policy &amp;
+                                            Co</a
+                                        >
+                                        <a href="#" class="mega-link">Business listings</a>
+                                        <a href="#" class="mega-sub"
+                                            >For Google, Facebook &amp; Co</a
+                                        >
+                                        <a href="#" class="mega-link">Social media integration</a>
+                                        <a href="#" class="mega-sub"
+                                            >Sell on Facebook &amp; Instagram</a
+                                        >
+                                    </div>
+                                </div>
+                            </el-menu>
+                        </el-dropdown>
+                    </li>
+
+                    <li>
+                        <el-dropdown class="inline-block">
+                            <button class="nav-trigger" data-nav-trigger type="button">
+                                Business-Tools
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    class="nav-chevron size-5"
+                                >
+                                    <path
+                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd"
+                                        fill-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+
+                            <el-menu anchor="bottom start" popover class="mega-menu w-[320px]">
+                                <div class="mega-col">
+                                    <p class="mega-heading">MORE USEFUL TOOLS</p>
+                                    <a href="#" class="mega-link">Business listings</a>
+                                    <a href="#" class="mega-sub">For Google, Facebook &amp; Co</a>
+                                    <a href="#" class="mega-link">Warning-proof legal texts</a>
+                                    <a href="#" class="mega-sub">For privacy policy &amp; Co</a>
+                                    <a href="#" class="mega-link">Social media integration</a>
+                                    <a href="#" class="mega-sub"
+                                        >Sell on Facebook &amp; Instagram</a
+                                    >
+                                </div>
+                            </el-menu>
+                        </el-dropdown>
+                    </li>
+
+                    <li><a href="#" class="nav-link">Community</a></li>
+                </ul>
+                <ul class="text-brand hidden h-full items-center gap-8 xl:flex">
+                    <li>
+                        <el-dropdown class="inline-block">
+                            <button class="nav-trigger" data-nav-trigger type="button">
+                                Knowledge Guide
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    class="nav-chevron size-5"
+                                >
+                                    <path
+                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd"
+                                        fill-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+
+                            <el-menu anchor="bottom start" popover class="mega-menu w-[320px]">
+                                <div class="mega-col">
+                                    <p class="mega-heading">EXPERTISE, TIPS AND INSPIRATION</p>
+                                    <a href="./templates/jimdo-blog.html" class="mega-link"
+                                        >All Topics</a
+                                    >
+                                    <a href="#" class="mega-sub">Knowledge guide overview</a>
+                                    <a href="#" class="mega-link">Website Tips</a>
+                                    <a href="#" class="mega-sub"
+                                        >Get the most out of your website</a
+                                    >
+                                    <a href="#" class="mega-link">Success stories</a>
+                                    <a href="#" class="mega-sub"
+                                        >Inspiring stories by real Jimdo customers</a
+                                    >
+                                    <a href="#" class="mega-link">Jimdo Updates</a>
+                                    <a href="#" class="mega-sub">What's new at Jimdo?</a>
+                                    <a href="#" class="mega-link">Founder Stories</a>
+                                    <a href="#" class="mega-sub"
+                                        >Inspiring stories by real Jimdo customers</a
+                                    >
+                                </div>
+                            </el-menu>
+                        </el-dropdown>
+                    </li>
+                    <li>
+                        <el-dropdown class="inline-block">
+                            <button class="nav-trigger" data-nav-trigger type="button">
+                                Help
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                    class="nav-chevron size-5"
+                                >
+                                    <path
+                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd"
+                                        fill-rule="evenodd"
+                                    />
+                                </svg>
+                            </button>
+
+                            <el-menu anchor="bottom start" popover class="mega-menu w-[320px]">
+                                <div class="mega-col">
+                                    <p class="mega-heading">HOW CAN WE HELP YOU?</p>
+                                    <a href="./templates/help-center.html" class="mega-link"
+                                        >Help center</a
+                                    >
+                                    <a href="#" class="mega-sub">Find answer to your questions</a>
+                                    <a href="#" class="mega-link">Contact support</a>
+                                    <a href="#" class="mega-sub"
+                                        >Our support team is here for you</a
+                                    >
+                                </div>
+                            </el-menu>
+                        </el-dropdown>
+                    </li>
+                    <li><a href="./templates/login.html" class="nav-link">Log In</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="container pt-[60px] pb-[120px] pl-[50px]">
+            <div class="grid grid-cols-2">
+                <div>
+                    <h1 class="text-[48px] font-bold">
+                        The website that thinks with you - and helps you to succeed and thrive
+                    </h1>
+                    <p class="text-[18px]">
+                        Jimdo combines everything your business needs – website, marketing,
+                        bookings, or an online store. With Companion, you get a smart assistant that
+                        thinks along with you: it understands your business, shows you what to do
+                        next, and helps you make it happen. For more visibility, more customers, and
+                        a busier calendar.
+                    </p>
+                    <button
+                        type="button"
+                        class="px[60px] bg-blue-600 px-4 py-2 py-[20px] text-[20px] font-bold text-white hover:bg-blue-600"
+                    >
+                        Start now for free
+                    </button>
+                    <ul class="[&>li]:flex">
+                        <li>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                />
+                            </svg>
+                            <p>GDPR compliant</p>
+                        </li>
+                        <li>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                />
+                            </svg>
+                            <p>Connected with Google & Meta – Customers find you</p>
+                        </li>
+                        <li>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="size-6"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                                />
+                            </svg>
+                            <p>Try for free – No credit card required</p>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="../src/assets/images/homepage-images/hero-desktop.png" alt="" />
+                </div>
+            </div>
+        </section>
+
+        <script type="module" src="/src/main.ts"></script>
+        <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+        <script src="./src/index.js"></script>
+    </body>
+</html>
