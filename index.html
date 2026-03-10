@@ -2,14 +2,14 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <link rel="icon" type="image/svg+xml" href="/src/assets/images/favicon.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         />
         <link rel="stylesheet" href="/src/styles/main.css" />
-        <title>my-project</title>
+        <title>Jimdo</title>
     </head>
     <body class="font-euclid bg-[#f8f8f8]">
         <nav
@@ -1377,7 +1377,7 @@
                                             <a href="#" class="mobile-acc-link">Online Store</a>
                                         </li>
                                         <li><a href="#" class="mobile-acc-link">Domain</a></li>
-                                    </ul>
+                                    </ula>
                                 </div>
                             </div>
                             <div class="footer-accordion">
@@ -1515,16 +1515,18 @@
                             class="text-m flex items-center justify-between bg-white px-3 py-2.5 font-semibold transition"
                         >
                             <!-- Flags -->
-                            <img
-                                src="https://flagcdn.com/w20/gb.png"
-                                class="h-7 w-7 rounded-full border-2 border-blue-700 object-cover"
-                                alt="UK Flag"
-                            />
-                            <img
-                                src="https://flagcdn.com/w20/us.png"
-                                class="h-7 w-7 rounded-full border-2 border-blue-700 object-cover"
-                                alt="US Flag"
-                            />
+                            <div id="lang-flags" class="flex items-center" aria-hidden="true">
+                                <img
+                                    src="https://flagcdn.com/w20/gb.png"
+                                    class="h-7 w-7 rounded-full border-2 border-blue-700 object-cover"
+                                    alt="UK Flag"
+                                />
+                                <img
+                                    src="https://flagcdn.com/w20/us.png"
+                                    class="h-7 w-7 rounded-full border-2 border-blue-700 object-cover"
+                                    alt="US Flag"
+                                />
+                            </div>
 
                             <!-- Text -->
                             <span id="lang-label" class="mx-3">English</span>
@@ -1559,6 +1561,10 @@
                                 role="option"
                                 aria-selected="true"
                                 data-lang="English"
+                                data-flag-src="https://flagcdn.com/w20/gb.png"
+                                data-flag-alt="UK Flag"
+                                data-flag-src-secondary="https://flagcdn.com/w20/us.png"
+                                data-flag-alt-secondary="US Flag"
                                 class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
                             >
                                 <img
@@ -1577,6 +1583,8 @@
                                 role="option"
                                 aria-selected="false"
                                 data-lang="Deutsch"
+                                data-flag-src="https://flagcdn.com/w20/de.png"
+                                data-flag-alt="Germany Flag"
                                 class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
                             >
                                 <img
@@ -1590,6 +1598,8 @@
                                 role="option"
                                 aria-selected="false"
                                 data-lang="Español"
+                                data-flag-src="https://flagcdn.com/w20/es.png"
+                                data-flag-alt="Spain Flag"
                                 class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
                             >
                                 <img
@@ -1603,6 +1613,8 @@
                                 role="option"
                                 aria-selected="false"
                                 data-lang="Français"
+                                data-flag-src="https://flagcdn.com/w20/fr.png"
+                                data-flag-alt="France Flag"
                                 class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
                             >
                                 <img
@@ -1615,13 +1627,15 @@
                             <li
                                 role="option"
                                 aria-selected="false"
-                                data-lang="Deutsch"
+                                data-lang="Italiano"
+                                data-flag-src="https://flagcdn.com/w20/it.png"
+                                data-flag-alt="Italy Flag"
                                 class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
                             >
                                 <img
-                                    src="https://flagcdn.com/w20/de.png"
+                                    src="https://flagcdn.com/w20/it.png"
                                     class="h-5 w-5 rounded-full border-2 border-blue-700 object-cover"
-                                    alt="Germany Flag"
+                                    alt="Italy Flag"
                                 />
                                 <span>Italiano</span>
                             </li>
@@ -1629,6 +1643,8 @@
                                 role="option"
                                 aria-selected="false"
                                 data-lang="日本語"
+                                data-flag-src="https://flagcdn.com/w20/jp.png"
+                                data-flag-alt="Japan Flag"
                                 class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
                             >
                                 <img
@@ -1642,6 +1658,8 @@
                                 role="option"
                                 aria-selected="false"
                                 data-lang="Nederlands"
+                                data-flag-src="https://flagcdn.com/w20/nl.png"
+                                data-flag-alt="Netherlands Flag"
                                 class="lang-option flex cursor-pointer items-center gap-3 px-4 py-3 text-sm hover:bg-gray-100"
                             >
                                 <img
