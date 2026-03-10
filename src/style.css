@@ -253,7 +253,7 @@ el-dropdown[open] svg {
     gap: var(--portfolio-gap);
     transform: translateX(0);
     will-change: transform;
-    transition: transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 3500ms cubic-bezier(5, 5, 5, 5);
 }
 
 .portfolio-slide-item {
@@ -263,10 +263,10 @@ el-dropdown[open] svg {
     max-width: 700px;
     max-height: 500px;
     transition:
-        flex-basis 350ms cubic-bezier(0.4, 0, 0.2, 1),
-        transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
-        opacity 350ms cubic-bezier(0.4, 0, 0.2, 1),
-        max-width 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        flex-basis 3500ms cubic-bezier(0.4, 0, 0.2, 2),
+        transform 3500ms cubic-bezier(0.4, 0, 0.2, 2),
+        opacity 3500ms cubic-bezier(0.4, 0, 0.2, 2),
+        max-width 3500ms cubic-bezier(0.4, 0, 0.2, 2);
 
     @variant max-md {
         flex: 0 0 100vw;

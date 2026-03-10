@@ -381,7 +381,7 @@ function initializePortfolioCarousel() {
 
     const MOBILE_BREAKPOINT = 768
     const DRAG_THRESHOLD = 50
-    const TRACK_TRANSITION = 'transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1)'
+    const TRACK_TRANSITION = 'transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1)'
     const SLIDE_TRANSITION =
         'transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1), opacity 200ms cubic-bezier(0.25, 0.1, 0.25, 1)'
     const activeSlideIndex = Math.min(1, totalItems - 1)
