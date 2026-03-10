@@ -136,6 +136,7 @@ function initializeMobileMenu(resetDrilldown) {
     })
 }
 
+//Language selector with support for multiple flags per language and desktop hover behavior
 function initializeLanguageSelector() {
     const languageSelector = document.getElementById('lang-selector')
     const languageButton = document.getElementById('lang-btn')
@@ -255,6 +256,8 @@ function initializeLanguageSelector() {
     })
 }
 
+//Footer Accordions for mobile view
+
 function initializeFooterAccordions() {
     const accordions = queryAll('.footer-accordion')
 
@@ -286,6 +289,8 @@ function initializeFooterAccordions() {
         })
     })
 }
+
+//Interactive preview section for worry-free websites with preloaded images and smooth transitions
 
 function initializeWorryFreeWebsites() {
     const worrySection = document.getElementById('worry-free-websites')
@@ -365,6 +370,8 @@ function initializeWorryFreeWebsites() {
         })
     })
 }
+
+//Carousel implementation And Animation
 
 function initializePortfolioCarousel() {
     const portfolioCarousel = document.getElementById('portfolio-carousel')
